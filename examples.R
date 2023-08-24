@@ -58,6 +58,36 @@ ggplot(data = df,
     margin = margin(t = 0, r = -27, b = 0, l = 0)
   ))
   
+
+# Simple Area Chart -------------------------------------------------------
+URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_herkunft_geschlecht_od3222/download/BEV322OD3222.csv"
+df <- fread(URL, encoding = "UTF-8") %>% 
+  group_by(StichtagDatJahr, HerkunftLang) %>% 
+  summarise(AnzBestWir = sum(AnzBestWir))
+colors <- get_zuericolors(palette = "qual6b",
+                         nth = c(6, 5))
+
+options(scipen = 999)
+ggplot(data = df,
+       aes(x = StichtagDatJahr,
+           y = AnzBestWir,
+           fill = HerkunftLang)) +
+  geom_area() +
+  # scale_x_continuous(limits = c(min(df$StichtagDatJahr) - 1, max(df$StichtagDatJahr) + 1),
+  #                    breaks = seq(min(df$StichtagDatJahr), max(df$StichtagDatJahr), 10)) +
+  # scale_y_continuous(limits = c(0, max(df$AnzBestWir) + 55000),
+  #                    breaks = seq(0, max(df$AnzBestWir) + 50000, 50000)) +
+  scale_fill_manual(values = colors) +
+  labs(title = "Wirtschaftliche Bevölkerung der Stadt Zürich",
+       subtitle = "nach Herkunft, seit 1901",
+       x = " ",
+       y = "Anzahl Personen",
+       caption = "Quelle: BVS, Statistik Stadt Zürich") +
+  ssz_theme(grid_lines = "y") +
+  theme(axis.title.y = element_text(
+    margin = margin(t = 0, r = -27, b = 0, l = 0)
+  ))
+
 # Stacked Bar Chart with confidence intervalls
 URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
 df <- fread(URL, encoding = "UTF-8") %>% 
