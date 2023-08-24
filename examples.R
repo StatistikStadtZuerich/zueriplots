@@ -72,7 +72,7 @@ ggplot(data = df,
        aes(x = StichtagDatJahr,
            y = AnzBestWir,
            fill = HerkunftLang)) +
-  geom_area() +
+  geom_area(color = "white") +
   # scale_x_continuous(limits = c(min(df$StichtagDatJahr) - 1, max(df$StichtagDatJahr) + 1),
   #                    breaks = seq(min(df$StichtagDatJahr), max(df$StichtagDatJahr), 10)) +
   # scale_y_continuous(limits = c(0, max(df$AnzBestWir) + 55000),
