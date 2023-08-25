@@ -54,19 +54,27 @@ ggplot(...) +
 ### Simpler Bar Chart
 Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/bar_chart.R).
 
-<img src='plots/bar_chart.png' />
+<img src='plots/bar_chart.png' height="400"/>
 
 ### Stacked Bar Chart
 Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/stacked_bar_chart.R).
 
-<img src='plots/stacked_bar_chart.png' />
+<img src='plots/stacked_bar_chart.png' height="400"/>
 
 ### Grouped Bar Chart
 Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/grouped_bar_chart.R).
 
-<img src='plots/grouped_bar_chart.png' />
+<img src='plots/grouped_bar_chart.png' height="400"/>
 
 ### Pyramid Chart
 Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pyramid_chart.R).
 
-<img src='plots/pyramid_chart.png' />
+<img src='plots/pyramid_chart.png' height="400"/>
+
+### Histogram Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/histogram_chart.R).
+
+## Boxplot Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/boxplot_chart.R).
+
+<img src='plots/boxplot_chart.png' height="400"/>
