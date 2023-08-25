@@ -2,7 +2,7 @@
 
 Dieses Repository dient als Anleitung für die CI/CD-konforme Erstellung von ggplots mithilfe von [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme) und [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors).
 
-Die `ssz_theme(...)`-Funktion aus dem `zueritheme`-Package übernimmt dabei die meisten Styling Funktionen. Bevor losgelegt werden kann, müssen `zueritheme` und `zuericolors` sowie die offizielle Font `HelveticaNeueLTPro` auf dem eigenen Rechner installiert werden.
+Die `ssz_theme(...)`-Funktion aus dem `zueritheme`-Package übernimmt dabei die meisten Styling-Aufgaben. Bevor losgelegt werden kann, müssen `zueritheme` und `zuericolors` sowie die offizielle Font `HelveticaNeueLTPro` auf dem eigenen Rechner installiert werden.
 
 ## HelveticaNeueLTPro
 
@@ -14,6 +14,15 @@ library(extrafont)
 font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
 windowsFonts()
 ```
+
+## Zusätzliches, manuelles Styling
+Die `ssz_theme(...)`-Funktion übernimmt nicht ganz alle Styling-Aufgaben, welche das CI/CD der Stadt Zürich vorschrebit. Namentlich betrifft dies die Position der Achsenbeschriftungen (v.a. Y-Achsenbeschriftung) sowie den 1000-Seperator.
+
+### Achsenbeschriftungen
+
+
+### 1000-Seperator
+Eine Funktion, welche eine Abstand 
 
 ## Bar Chart
 [Bar Charts](https://r-graph-gallery.com/barplot.html) sind die wohl am häufigsten verwendeten Grafiktypen.
