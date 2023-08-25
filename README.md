@@ -78,3 +78,14 @@ Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035
 Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/boxplot_chart.R).
 
 <img src='plots/boxplot_chart.png' height="400"/>
+
+## Line Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/line_chart.R).
+
+<img src='plots/line_chart.png' height="400"/>
+
+## Area Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/area_chart.R).
+
+<img src='plots/area_chart.png' height="400"/>
+
