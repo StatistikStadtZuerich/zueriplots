@@ -39,14 +39,16 @@ plot <- ggplot(data = df,
   geom_jitter(color = get_zuericolors(palette = "seq6gry", nth = 6),
               size = 0.75,
               alpha = 0.25) +
+  scale_y_continuous(limits = c(-5, 32)) +
   labs(title = "Boxplot",
        subtitle = "Beispiel",
        x = " ",
        y = "Verteilung") +
   ssz_theme(grid_lines = "y",
-            base_family = "HelveticaNeueLT Pro 55 Roman") +
+            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_size = 12) +
   theme(axis.title.y = element_text(
-    margin = margin(t = 0, r = -10, b = 0, l = 0)
+    margin = margin(t = 0, r = -13, b = 0, l = 0)
   ))
 
 # Save Plot
