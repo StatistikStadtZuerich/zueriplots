@@ -46,6 +46,6 @@ plot <- ggplot(data = df,
 ggsave(
   paste0(here(), "/plots/pyramid_chart.png"),
   plot,
-  width = 10,
-  height = 10
+  width = 7,
+  height = 6
 )
