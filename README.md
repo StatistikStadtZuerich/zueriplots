@@ -89,3 +89,13 @@ Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035
 
 <img src='plots/area_chart.png' height="400"/>
 
+## Scatterplot Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/scatterplot_chart.R).
+
+<img src='plots/scatterplot_chart.png' height="400"/>
+
+## Pie Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pie_chart.R).
+
+<img src='plots/pie_chart.png' height="400"/>
+
