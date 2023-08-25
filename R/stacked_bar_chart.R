@@ -23,6 +23,11 @@ df <- fread(URL, encoding = "UTF-8") %>%
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = c(1, 4, 2))
 
+# Import HelveticaNeueLTPro
+font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
+loadfonts(device = "win")
+windowsFonts()
+
 # Plot
 plot <- ggplot(data = df,
        aes(x = AntBev,
@@ -44,7 +49,8 @@ plot <- ggplot(data = df,
        x = "Anteil (in %)",
        y = "",
        caption = "Quelle: Strukturerhebung, Bundesamt für Statistik.\n95%-Konfidenzintervalle") +
-  ssz_theme(grid_lines = "x")
+  ssz_theme(grid_lines = "x",
+            base_family = "HelveticaNeueLT Pro 55 Roman")
 
 # Save Plot
 ggsave(
