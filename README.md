@@ -65,3 +65,8 @@ Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035
 Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/grouped_bar_chart.R).
 
 <img src='plots/grouped_bar_chart.png' />
+
+### Pyramid Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pyramid_chart.R).
+
+<img src='plots/pyramid_chart.png' />
