@@ -7,6 +7,7 @@ library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
+library(extrafont)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_od3243/download/BEV324OD3243.csv"
@@ -15,19 +16,28 @@ df <- fread(URL, encoding = "UTF-8")
 # Define Colors
 color <- get_zuericolors(palette = "qual6", nth = 1)
 
+# Import HelveticaNeueLTPro
+font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
+loadfonts(device = "win")
+windowsFonts()
+
 # Plot
-options(scipen = 999)
 plot <- ggplot(data = df,
        aes(x = StichtagDatJahr,
            y = AnzBestWir)) +
   geom_bar(stat = "identity",
            fill = color) +
+  scale_y_continuous(labels = function(x) format(x, 
+                                                 big.mark = "\u2009", 
+                                                 scientific = FALSE),
+                     expand = c(0, 0)) +
   labs(title = "Wirtschaftliche Bevölkerung der Stadt Zürich",
        subtitle = "seit 1901",
        x = " ",
        y = "Anzahl Personen",
        caption = "Quelle: BVS, Statistik Stadt Zürich") +
-  ssz_theme(grid_lines = "y") +
+  ssz_theme(grid_lines = "y",
+            base_family = "HelveticaNeueLT Pro 55 Roman") +
   theme(axis.title.y = element_text(
     margin = margin(t = 0, r = -27, b = 0, l = 0)
   ))
