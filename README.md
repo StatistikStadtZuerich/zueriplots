@@ -52,9 +52,16 @@ ggplot(...) +
 [Bar Charts](https://r-graph-gallery.com/barplot.html) sind die wohl am häufigsten verwendeten Grafiktypen.
 
 ### Simpler Bar Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/plots/bar_chart.png).
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/bar_chart.R).
+
 <img src='plots/bar_chart.png' />
 
-## Stacked Bar Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/plots/stacked_bar_chart.png).
+### Stacked Bar Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/stacked_bar_chart.R).
+
 <img src='plots/stacked_bar_chart.png' />
+
+### Grouped Bar Chart
+Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/grouped_bar_chart.R).
+
+<img src='plots/grouped_bar_chart.png' />
