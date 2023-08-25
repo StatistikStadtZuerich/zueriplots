@@ -9,7 +9,7 @@ library(dplyr)
 library(here)
 
 # Data
-URL <- URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_herkunft_geschlecht_od3222/download/BEV322OD3222.csv"
+URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_herkunft_geschlecht_od3222/download/BEV322OD3222.csv"
 df <- fread(URL, encoding = "UTF-8") %>% 
   group_by(StichtagDatJahr, HerkunftLang) %>% 
   summarise(AnzBestWir = sum(AnzBestWir))
