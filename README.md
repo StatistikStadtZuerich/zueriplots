@@ -21,7 +21,7 @@ Die `ssz_theme(...)`-Funktion übernimmt nicht ganz alle Styling-Aufgaben, welch
 ### Achsenbeschriftungen
 Die Achsenbeschriftungen bzw. ihre Position und Margin orientieren sich bei `ggplot2` an den Achsen-Labels. In `zueritheme` wird z.B. die Y-Achsenbeschriftungen wie folgt gesetzt:
 
-<img src='pics/axis_text.png' />
+<img src='pics/axis_text.PNG' />
 
 so gezeichnet, dass die Y-Achsenbeschriftung oberhalb der Y-Achse gezeichnet wird und die X-Achsenbeschriftung
 
