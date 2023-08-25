@@ -40,7 +40,10 @@ plot <- ggplot(data = df,
        x = "Anzahl Personen",
        y = "Alter",
        caption = "Quelle: BVS, Statistik Stadt Zürich") +
-  ssz_theme(grid_lines = "none")
+  ssz_theme(grid_lines = "none") +
+  theme(axis.title.y = element_text(
+    margin = margin(t = 0, r = -10, b = 0, l = 0)
+  ))
 
 # Save Plot
 ggsave(
