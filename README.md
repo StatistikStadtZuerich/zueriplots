@@ -19,12 +19,20 @@ windowsFonts()
 Die `ssz_theme(...)`-Funktion übernimmt nicht ganz alle Styling-Aufgaben, welche das CI/CD der Stadt Zürich vorschrebit. Namentlich betrifft dies die Position der Achsenbeschriftung sowie den 1000-Seperator.
 
 ### Achsenbeschriftungen
-Die Achsenbeschriftungen bzw. ihre Position und Margin orientieren sich bei `ggplot2` an den Achsen-Labels. In `zueritheme` wird z.B. die Y-Achsenbeschriftungen wie folgt gesetzt:
+Die Achsenbeschriftungen bzw. ihre Position und Margin orientieren sich bei `ggplot2` an den Achsen-Labels. In `zueritheme` wird die z.B. die Y-Achsenbeschriftungen oben links an der Y-Achse rechtsbündig an den Achsen-Labels positioniert:
 
-<img src='pics/axis_text.PNG' />
+<img src='pics/axis_text.PNG' align="left" height="138.5" />
 
-so gezeichnet, dass die Y-Achsenbeschriftung oberhalb der Y-Achse gezeichnet wird und die X-Achsenbeschriftung
+Da  die Position der Achsenbeschriftungen daher von der Skalierung (oder den Kategorien) der dargestellten Variable abhängig ist, muss die Beschriftung mit der `margin()`-Funktion positioniert werden.
 
+``` r
+ggplot(...) +
+geom_bar(...) +
+ssz_theme(grid_lines = "y") +
+theme(axis.title.y = element_text(
+  margin = margin(t = 0, r = -27, b = 0, l = 0)
+))
+```
 
 ### 1000-Seperator
 Eine Funktion, welche eine Abstand 
