@@ -1,41 +1,21 @@
 # zueriplots
 
-The goal of zueriplots is to provide minimal code examples for ggplot graphs that conforms - together with [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme) and [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors) - to the corporate identity/design of the city of Zurich.
+Dieses Repository dient als Anleitung für die CI/CD-konforme Erstellung von ggplots mithilfe von [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme) und [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors).
 
-## Example
+Die `ssz_theme(...)`-Funktion aus dem `zueritheme`-Package übernimmt dabei die meisten Styling Funktionen. Bevor losgelegt werden kann, müssen `zueritheme` und `zuericolors` sowie die offizielle Font `HelveticaNeueLTPro` auf dem eigenen Rechner installiert werden.
 
-This is an example which shows you how to build a graph that conforms to the corporate design of the city of Zurich. First you must install zuericolors and zueritheme from GitHub.
+## HelveticaNeueLTPro
+
+Die Font HelveticaNeueLTPro muss zuerst im Softwarecenter bestellt und installiert werden. Danach wird das `extrafont`-Package benötigt und mit der `font_import()`-Funktion die Schrift installiert. Mit der Funktion `windwosFonts()` sieht man, welche Schriften vom System in R verfügbar sind.
 
 ``` r
-# Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
-library(data.table)
-
-# Data
-URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_od3243/download/BEV324OD3243.csv"
-df <- fread(URL, encoding = "UTF-8")
-
-# Plot
-options(scipen = 999)
-plot <- ggplot(data = df,
-       aes(x = StichtagDatJahr,
-           y = AnzBestWir)) +
-  geom_line(stat = "identity",
-            color = get_zuericolors(palette = "qual6", nth = 1),
-            linewidth = 1) +
-  scale_y_continuous(limits = c(0, max(df$AnzBestWir) + 30000),
-                     breaks = seq(0, max(df$AnzBestWir) + 10000, 50000)) +
-  labs(title = "Wirtschaftliche Bevölkerung der Stadt Zürich",
-       subtitle = "seit 1901",
-       x = " ",
-       y = "Anzahl Personen",
-       caption = "Quelle: BVS, Statistik Stadt Zürich") +
-  ssz_theme(grid_lines = "y") +
-  theme(axis.title.y = element_text(
-    margin = margin(t = 0, r = -27, b = 0, l = 0)
-  ))
+# install.packages("extrafont")
+library(extrafont)
+font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
+windowsFonts()
 ```
+
+## Bar Chart
+[Bar Charts](https://r-graph-gallery.com/barplot.html) sind die wohl am häufigsten verwendeten Grafiktypen.
 
 <img src='plots/line_chart.png' />
