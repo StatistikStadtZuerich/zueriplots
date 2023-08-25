@@ -52,15 +52,16 @@ plot <- ggplot(data = df,
        y = "Anteil (in %)",
        caption = "Quelle: Strukturerhebung, Bundesamt für Statistik.\n95%-Konfidenzintervalle") +
   ssz_theme(grid_lines = "y",
-            base_family = "HelveticaNeueLT Pro 55 Roman") +
+            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_size = 12) +
   theme(axis.title.y = element_text(
-    margin = margin(t = 0, r = -10, b = 0, l = 0)
+    margin = margin(t = 0, r = -13, b = 0, l = 0)
   ))
 
 # Save Plot
 ggsave(
   paste0(here(), "/plots/grouped_bar_chart.png"),
   plot,
-  width = 10,
-  height = 6
+  width = 12,
+  height = 7
 )

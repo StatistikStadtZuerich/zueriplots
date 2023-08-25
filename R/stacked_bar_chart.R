@@ -50,7 +50,8 @@ plot <- ggplot(data = df,
        y = "",
        caption = "Quelle: Strukturerhebung, Bundesamt für Statistik.\n95%-Konfidenzintervalle") +
   ssz_theme(grid_lines = "x",
-            base_family = "HelveticaNeueLT Pro 55 Roman")
+            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_size = 12)
 
 # Save Plot
 ggsave(

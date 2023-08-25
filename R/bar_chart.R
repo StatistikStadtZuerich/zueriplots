@@ -37,9 +37,10 @@ plot <- ggplot(data = df,
        y = "Anzahl Personen",
        caption = "Quelle: BVS, Statistik Stadt Zürich") +
   ssz_theme(grid_lines = "y",
-            base_family = "HelveticaNeueLT Pro 55 Roman") +
+            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_size = 12) +
   theme(axis.title.y = element_text(
-    margin = margin(t = 0, r = -27, b = 0, l = 0)
+    margin = margin(t = 0, r = -43, b = 0, l = 0)
   ))
 
 # Save Plot
