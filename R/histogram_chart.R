@@ -28,7 +28,6 @@ plot <- ggplot(data = df,
   geom_histogram(binwidth = 1,
                  fill = color,
                  color = "white") +
-  
   labs(title = "Histogram",
        subtitle = "Beispiel",
        x = " ",
