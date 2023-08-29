@@ -1246,16 +1246,16 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "zueritheme",
       "RemoteUsername": "StatistikStadtZuerich",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "49c52a910e809eded54ced058c25305c4ddc44a4",
+      "RemoteRepo": "zueritheme",
+      "RemoteRef": "main",
+      "RemoteSha": "84715727090cfa012589a672d7d43cd4d8fbb3d2",
       "Requirements": [
         "dplyr",
         "ggplot2",
         "gridExtra"
       ],
-      "Hash": "7a590e2140fc79db48e43c1cedfc2ece"
+      "Hash": "312927918660e30229d12253d64ab06f"
     }
   }
 }
