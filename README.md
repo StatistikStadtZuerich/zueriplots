@@ -49,7 +49,7 @@ ggplot(...) +
                     ...) +
   ssz_theme(grid_lines = "y")
 ```
-In the folow
+Example code for the most commonly used graph types at [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) is provided below.
 
 ## Bar Chart
 ### Simple Bar Chart
@@ -75,6 +75,8 @@ You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035
 ### Histogram Chart
 You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/histogram_chart.R).
 
+<img src='plots/histogram_chart.png' height="400"/>
+
 ## Boxplot Chart
 You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/boxplot_chart.R).
 
@@ -97,6 +99,8 @@ You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035
 
 ## Pie Chart
 You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pie_chart.R).
+
+Note: Pie charts are usually used to show the relationship between parts and the whole of a data set. I.e. how big part A is in relation to part B, C, etc. The problem with pie charts is that they force us to compare areas (or angles), which is often quite difficult to do. Furthermore, pie charts are only used when manageable number of groups are to be compared and these groups are easily distinguishable by color.
 
 <img src='plots/pie_chart.png' height="400"/>
 
