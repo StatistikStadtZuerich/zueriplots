@@ -107,5 +107,7 @@ Note: Pie charts are usually used to show the relationship between parts and the
 ## Doughnut Chart
 You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/doughnut_chart.R).
 
+<img src='plots/doughnut_chart.png' height="400"/>
+
 ## Getting Help
 If you encounter a bug, please contact statistik@zuerich.ch.
