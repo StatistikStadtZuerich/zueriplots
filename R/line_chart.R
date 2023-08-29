@@ -7,6 +7,7 @@ library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
+library(extrafont)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_od3243/download/BEV324OD3243.csv"

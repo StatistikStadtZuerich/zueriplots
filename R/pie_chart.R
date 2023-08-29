@@ -8,6 +8,7 @@ library(data.table)
 library(dplyr)
 library(here)
 library(ggpubr)
+library(extrafont)
 
 # Data
 df <- data.frame(kat =c ("A", "B", "C"),
@@ -41,15 +42,24 @@ plot <- ggplot(data = df,
             size = 3.5,
             color = "white") +
   scale_fill_manual(values = colors) +
+  labs(title = "Anteile einer erfundenen Verteilung",
+       subtitle = "2023",
+       caption = "Quelle: Erfundene Zahlen") +
   coord_polar(theta="y") +
   ssz_theme_void(base_family = "HelveticaNeueLT Pro 55 Roman",
-                 base_size = 12) +
-  theme(panel.background = element_rect(fill = "white"))
+                 base_size = 12)
 
 # Save Plot
 ggsave(
   paste0(here(), "/plots/pie_chart.png"),
   plot,
   width = 6,
-  height = 6
+  height = 5
 )
+
+ggplot(iris,
+       aes(x = Sepal.Width,
+           y = Sepal.Length)) +
+  geom_point() +
+  ssz_theme_void(base_family = "HelveticaNeueLT Pro 55 Roman",
+                 base_size = 12)

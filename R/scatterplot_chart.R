@@ -7,6 +7,7 @@ library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
+library(extrafont)
 
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = c(4:6))
