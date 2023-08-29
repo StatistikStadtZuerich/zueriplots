@@ -1,12 +1,14 @@
 # zueriplots
 
-Dieses Repository dient als Anleitung für die CI/CD-konforme Erstellung von ggplots mithilfe von [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme) und [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors).
+The goal of this repository is to provide minimal code examples for [ggplot2](https://ggplot2.tidyverse.org/) graphs that conform to the corporate identity/design of the [city of Zurich](https://www.stadt-zuerich.ch/portal/de/index.html). Most of the required styling is done by [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme), while the [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors) package takes care of the colors.
 
-Die `ssz_theme(...)`-Funktion aus dem `zueritheme`-Package übernimmt dabei die meisten Styling-Aufgaben. Bevor losgelegt werden kann, müssen `zueritheme` und `zuericolors` sowie die offizielle Font `HelveticaNeueLTPro` auf dem eigenen Rechner installiert werden.
+The `ssz_theme(...)` function from the `zueritheme` package takes care of most of the required styling tasks. However, in order for `ggplot2` graphs to conform to the corporate design, a few manual steps are still necessary. These steps will be explained in the following.
+
+Before you can start, you have to install `zueritheme` and `zuericolors` as well as Zurich's official font `HelveticaNeueLTPro` (only available for city employees) on your own computer.
 
 ## HelveticaNeueLTPro
 
-Die Font HelveticaNeueLTPro muss zuerst im Softwarecenter bestellt und installiert werden. Danach wird das `extrafont`-Package benötigt und mit der `font_import()`-Funktion die Schrift installiert. Mit der Funktion `windwosFonts()` sieht man, welche Schriften vom System in R verfügbar sind. Mithilfe von `loadfonts(device = "win")` wird die entsprechende Schrift geladen.
+The font HelveticaNeueLTPro must first be ordered in the software center and installed on your computer. The `font_import()` function from the `extrafont` package imports the font and makes it accessable for R Studio. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
 
 ``` r
 # install.packages("extrafont")
@@ -16,15 +18,15 @@ loadfonts(device = "win")
 windowsFonts()
 ```
 
-## Zusätzliches, manuelles Styling
-Die `ssz_theme(...)`-Funktion übernimmt nicht ganz alle Styling-Aufgaben, welche das CI/CD der Stadt Zürich vorschrebit. Namentlich betrifft dies die Position der Achsenbeschriftung sowie des Halbgeviert.
+## Additional Manual Styling
+The `ssz_theme(...)` function does not take over all styling tasks that the CI/CD of the city of Zurich prescribes. Namely, this concerns the position of the axis titles as well as the spacing for the ten thousand numbers (see picture below).
 
-### Achsenbeschriftungen
-Die Achsenbeschriftungen bzw. ihre Position und Margin orientieren sich bei `ggplot2` an den Achsen-Labels. In `zueritheme` wird die z.B. die Y-Achsenbeschriftungen oben links an der Y-Achse rechtsbündig an den Achsen-Labels positioniert:
+### Axis Titles
+In `ggplot2` the axis titles or their position and margin are oriented to the axis labels. In `zueritheme` this means that e.g. the y-axis titles are positioned at the top left of the y-axis, right-justified at the axis labels.
 
 <img src='pics/axis_text.PNG' />
 
-Da  die Position der Achsenbeschriftungen daher von der Skalierung (oder den Kategorien) der dargestellten Variable abhängig ist, muss die Beschriftung mit `margin(r = ...)` in einer zusätzlichen `theme()`-Funktion positioniert werden.
+Since the position of the axis titles therefore depends on the scaling (or length of strings if categories) of the displayed variable, the title must be positioned with `margin(r = ...)` in an additional `theme()` function.
 
 ``` r
 ggplot(...) +
@@ -35,67 +37,68 @@ ggplot(...) +
   ))
 ```
 
-### Halbgeviert
-Einen halbgevierten Abstand bei den 1000er kann wie folgt implementiert werden (Beispiel numerische Y-Achse):
+### Spacing for the Ten Thousand Numbers
+In order to get a nice spacing for the ten thousand numbers, we need to maniuplate the labels' format with `big.mark = " "` when applying the `scale_y_continous` function.
 
 ``` r
 ggplot(...) +
   geom_bar(...) +
   scale_y_continous(labels = function(x) format(x,
-                                                big.mark = "\u2009", 
+                                                big.mark = " ", 
                                                 scientific = FALSE),
                     ...) +
   ssz_theme(grid_lines = "y")
 ```
+In the folow
 
 ## Bar Chart
-[Bar Charts](https://r-graph-gallery.com/barplot.html) sind die wohl am häufigsten verwendeten Grafiktypen.
-
-### Simpler Bar Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/bar_chart.R).
+### Simple Bar Chart
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/bar_chart.R).
 
 <img src='plots/bar_chart.png' height="400"/>
 
 ### Stacked Bar Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/stacked_bar_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/stacked_bar_chart.R).
 
 <img src='plots/stacked_bar_chart.png' height="400"/>
 
 ### Grouped Bar Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/grouped_bar_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/grouped_bar_chart.R).
 
 <img src='plots/grouped_bar_chart.png' height="400"/>
 
 ### Pyramid Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pyramid_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pyramid_chart.R).
 
 <img src='plots/pyramid_chart.png' height="400"/>
 
 ### Histogram Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/histogram_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/histogram_chart.R).
 
 ## Boxplot Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/boxplot_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/boxplot_chart.R).
 
 <img src='plots/boxplot_chart.png' height="400"/>
 
 ## Line Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/line_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/line_chart.R).
 
 <img src='plots/line_chart.png' height="400"/>
 
 ## Area Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/area_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/area_chart.R).
 
 <img src='plots/area_chart.png' height="400"/>
 
 ## Scatterplot Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/scatterplot_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/scatterplot_chart.R).
 
 <img src='plots/scatterplot_chart.png' height="400"/>
 
 ## Pie Chart
-Den R-Code für diese Grafik findetst du [hier](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pie_chart.R).
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pie_chart.R).
 
 <img src='plots/pie_chart.png' height="400"/>
 
+## Getting Help
+If you encounter a bug, please contact statistik@zuerich.ch.
