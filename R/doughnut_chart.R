@@ -1,4 +1,4 @@
-# SSZ Pie Chart -----------------------------------------------------------
+# SSZ Doughnut Chart -----------------------------------------------------------
 
 # Required Libraries
 library(ggplot2)
@@ -45,13 +45,14 @@ plot <- ggplot(data = df,
   labs(title = "Anteile einer erfundenen Verteilung",
        subtitle = "2023",
        caption = "Quelle: Erfundene Zahlen") +
+  xlim(c(2, 4)) +
   coord_polar(theta="y") +
   ssz_theme_void(base_family = "HelveticaNeueLT Pro 55 Roman",
                  base_size = 12)
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/pie_chart.png"),
+  paste0(here(), "/plots/doughnut_chart.png"),
   plot,
   width = 6,
   height = 5
