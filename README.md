@@ -119,5 +119,10 @@ You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035
 
 <img src='plots/ridgeline_chart.png' height="400"/>
 
+## Map Chart
+You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/map_chart.R).
+
+<img src='plots/map_chart.png' height="400"/>
+
 ## Getting Help
 If you encounter a bug, please contact statistik@zuerich.ch.
