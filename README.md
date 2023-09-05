@@ -126,4 +126,3 @@ You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035
 
 ## Getting Help
 If you encounter a bug, please contact statistik@zuerich.ch.
-
