@@ -76,6 +76,6 @@ plot <- ggplot() +
 ggsave(
   paste0(here(), "/plots/map_chart.png"),
   plot,
-  width = 10,
+  width = 8,
   height = 6
 )
