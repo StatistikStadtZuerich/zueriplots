@@ -125,4 +125,4 @@ You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035
 <img src='plots/map_chart.png' height="400"/>
 
 ## Getting Help
-If you encounter a bug, please contact statistik@zuerich.ch.
+If you encounter a bug, please contact statistik@zuerich.ch
