@@ -35,7 +35,7 @@ quantile_vec <- data %>%
 
 # Make Labels for Plot
 labels <- tibble(
-  lab1 = quantile_vec,
+  lab1 = c(quantile_vec[1], quantile_vec[2:5] + 1),
   lab2 = c(quantile_vec[2:length(quantile_vec)], NA)
 ) %>% 
   slice(1:n() - 1) %>% 
