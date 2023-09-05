@@ -42,7 +42,7 @@ plot <- ggplot(data = df,
        caption = "Quelle: BVS, Statistik Stadt Zürich") +
   ssz_theme(grid_lines = "none",
             base_family = "HelveticaNeueLT Pro 55 Roman",
-            base_size = 12) +
+            base_size = 11) +
   theme(axis.title.y = element_text(
     margin = margin(t = 0, r = -20, b = 0, l = 0)
   ))
@@ -51,6 +51,6 @@ plot <- ggplot(data = df,
 ggsave(
   paste0(here(), "/plots/pyramid_chart.png"),
   plot,
-  width = 8,
+  width = 6,
   height = 6
 )

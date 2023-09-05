@@ -43,7 +43,6 @@ plot <- ggplot() +
           linewidth = 0.75) +
   scale_fill_gradient(low = colors[1],
                       high = colors[2],
-                      breaks = seq(0, 120, 10),
                       name = "Personen pro ha") +
   labs(title = "Bevölkerungsdichte in der Stadt Zürich",
        subtitle = "nach Stadtkreis (mit Bezug Gesamtfläche), 2022") +

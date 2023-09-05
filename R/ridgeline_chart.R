@@ -54,6 +54,6 @@ plot <- ggplot(data = df,
 ggsave(
   paste0(here(), "/plots/ridgeline_chart.png"),
   plot,
-  width = 10,
+  width = 8,
   height = 6
 )
