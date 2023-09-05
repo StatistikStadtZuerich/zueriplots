@@ -1506,20 +1506,20 @@
     },
     "zueritheme": {
       "Package": "zueritheme",
-      "Version": "0.0.1.0000",
+      "Version": "0.0.1.9001",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "StatistikStadtZuerich",
       "RemoteRepo": "zueritheme",
       "RemoteRef": "main",
-      "RemoteSha": "84715727090cfa012589a672d7d43cd4d8fbb3d2",
+      "RemoteSha": "d5be139f2ef361145605496d96563f8ca7d87c9e",
       "Requirements": [
         "dplyr",
         "ggplot2",
         "gridExtra"
       ],
-      "Hash": "312927918660e30229d12253d64ab06f"
+      "Hash": "d1160ce88d5eab6b23406a0048e93c76"
     }
   }
 }
