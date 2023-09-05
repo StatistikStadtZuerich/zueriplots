@@ -2,13 +2,13 @@
 
 The goal of this repository is to provide minimal code examples for [ggplot2](https://ggplot2.tidyverse.org/) graphs that conform to the corporate identity/design of the [city of Zurich](https://www.stadt-zuerich.ch/portal/de/index.html). Most of the required styling is done by [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme), while the [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors) package takes care of the colors.
 
-The `ssz_theme(...)` function from the `zueritheme` package takes care of most of the required styling tasks. However, in order for `ggplot2` graphs to conform to the corporate design, a few manual steps are still necessary. These steps will be explained in the following.
+The `ssz_theme(...)` function from the `zueritheme` package provides most of the styling. However, in order for `ggplot2` graphs to conform to the corporate design, a few manual steps are still necessary. These steps will be explained in the following.
 
-Before you can start, you have to install `zueritheme` and `zuericolors` as well as Zurich's official font `HelveticaNeueLTPro` (only available for city employees) on your own computer.
+Before you can start, you have to install `zueritheme` and `zuericolors` as well as Zurich's official font `HelveticaNeueLTPro` (only available for city employees).
 
 ## HelveticaNeueLTPro
 
-The font HelveticaNeueLTPro must first be ordered in the software center and installed on your computer. The `font_import()` function from the `extrafont` package imports the font and makes it accessable for R Studio. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
+`HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. The `font_import()` function from the `extrafont` package imports the font and makes it accessable for R Studio. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
 
 ``` r
 # install.packages("extrafont")
@@ -22,11 +22,11 @@ windowsFonts()
 The `ssz_theme(...)` function does not take over all styling tasks that the CI/CD of the city of Zurich prescribes. Namely, this concerns the position of the axis titles as well as the spacing for the ten thousand numbers (see picture below).
 
 ### Axis Titles
-In `ggplot2` the axis titles or their position and margin are oriented to the axis labels. In `zueritheme` this means that e.g. the y-axis titles are positioned at the top left of the y-axis, right-justified at the axis labels.
+In `ggplot2` the axis titles or their position and margin are oriented to the axis labels. For `zueritheme` this means that e.g. the y-axis titles are positioned at the top left of the y-axis, right-justified at the axis labels.
 
 <img src='pics/axis_text.PNG' />
 
-Since the position of the axis titles therefore depends on the scaling (or length of strings if categories) of the displayed variable, the title must be positioned with `margin(r = ...)` in an additional `theme()` function.
+Since the position of the axis titles therefore depends on the scaling (or length of strings if categories) of the displayed variable, the title must be positioned with `margin(r = ...)` in an additional `theme()` function in order to conform to the corporate design. The axis title should be right-justified and aligned with the axis labels.
 
 ``` r
 ggplot(...) +
