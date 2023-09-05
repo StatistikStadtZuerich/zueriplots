@@ -36,6 +36,9 @@ ggplot(...) +
     margin = margin(t = 0, r = -27, b = 0, l = 0)
   ))
 ```
+In the end the axis title should look something like this:
+
+<img src='pics/axis_text_right.PNG' />
 
 ### Spacing for the Ten Thousand Numbers
 In order to get a nice spacing for the ten thousand numbers, we need to maniuplate the labels' format with `big.mark = " "` when applying the `scale_y_continous` function.
