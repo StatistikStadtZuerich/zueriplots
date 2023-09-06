@@ -12,6 +12,7 @@ library(sf)
 library(httr)
 library(broom)
 library(tidyr)
+library(ggpattern)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdichten_flaechen_od5802/download/BEV580OD5802.csv"
@@ -24,9 +25,12 @@ data <- fread(URL, encoding = "UTF-8") %>%
                          labels = labels$labels,
                          include.lowest = T))
 
-# Shape File
+# Shape Files
 URL_geojson <- "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Stadtkreise?service=WFS&version=1.1.0&request=GetFeature&outputFormat=GeoJSON&typename=adm_stadtkreise_v"
 quartiere <- st_read(URL_geojson)
+
+URL_geojson_see <- paste0(here(), "/shp/lakezurich.geojson")
+see <- st_read(URL_geojson_see)
 
 # Define Quantile Vector
 quantile_vec <- data %>% 
@@ -48,6 +52,7 @@ df <- quartiere %>%
 
 # Define Colors
 colors <- get_zuericolors(palette = "seq9blu", nth = c(1, 3, 5, 7, 9))
+colors_see <- get_zuericolors(palette = "seq6gry", nth = c(1, 2))
 
 # Import HelveticaNeueLTPro
 font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
@@ -60,6 +65,14 @@ plot <- ggplot() +
           aes(fill = quantiles),
           color = "white",
           linewidth = 0.75) +
+  geom_sf_pattern(data = see,
+                  color = NA,
+                  fill = colors_see[1],
+                  pattern_fill = colors_see[2],
+                  pattern_color = colors_see[2],
+                  pattern_angle = 45,
+                  pattern_density = 0.07,
+                  pattern_spacing = 0.01) +
   scale_fill_manual(values = colors,
                     name = "Personen pro ha") +
   labs(title = "Bevölkerungsdichte in der Stadt Zürich",
