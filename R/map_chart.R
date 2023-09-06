@@ -19,17 +19,17 @@ URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdich
 data <- fread(URL, encoding = "UTF-8") %>% 
   filter(StichtagDatJahr == 2022 & RaumKategorie == "Stadtkreis") %>% 
   select(RaumSort, RaumLang, DichteT) %>% 
-  rename(kname = RaumLang) %>% 
+  rename(Kreisname = RaumLang) %>% 
   mutate(quantiles = cut(DichteT,
                          breaks = quantile_vec,
                          labels = labels$labels,
                          include.lowest = T))
 
 # Shape Files
-URL_geojson <- "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Stadtkreise?service=WFS&version=1.1.0&request=GetFeature&outputFormat=GeoJSON&typename=adm_stadtkreise_v"
+URL_geojson <- "https://raw.githubusercontent.com/StatistikStadtZuerich/sszvis/master/geodata/stadtkreise.json"
 quartiere <- st_read(URL_geojson)
 
-URL_geojson_see <- paste0(here(), "/shp/lakezurich.geojson")
+URL_geojson_see <- "https://raw.githubusercontent.com/StatistikStadtZuerich/sszvis/master/geodata/lakezurich.geojson"
 see <- st_read(URL_geojson_see)
 
 # Define Quantile Vector
@@ -48,7 +48,7 @@ labels <- tibble(
 
 # Join Data to Shapefile
 df <- quartiere %>% 
-  left_join(data, by = "kname")
+  left_join(data, by = "Kreisname")
 
 # Define Colors
 colors <- get_zuericolors(palette = "seq9blu", nth = c(1, 3, 5, 7, 9))
