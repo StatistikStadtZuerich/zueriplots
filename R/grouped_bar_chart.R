@@ -10,7 +10,7 @@ library(here)
 library(extrafont)
 
 # Data
-URL <- URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
+URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
 df <- fread(URL, encoding = "UTF-8") %>% 
   filter(Jahr >= 2010) %>% 
   group_by(Jahr) %>% 
