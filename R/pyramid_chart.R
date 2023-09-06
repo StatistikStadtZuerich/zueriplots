@@ -13,7 +13,7 @@ library(extrafont)
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903/download/BEV390OD3903.csv"
 df <- fread(URL, encoding = "UTF-8") %>% 
   filter(StichtagDatJahr == max(StichtagDatJahr)) %>% 
-  group_by(AlterVSort, SexLang) %>% 
+  group_by(StichtagDatJahr, AlterVSort, SexLang) %>% 
   summarise(AnzBestWir = sum(AnzBestWir)) %>% 
   mutate(Anzahl = case_when(SexLang == "weiblich" ~ AnzBestWir*-1,
                             TRUE ~ AnzBestWir))
@@ -36,7 +36,7 @@ plot <- ggplot(data = df,
   scale_y_discrete(breaks = factor(c(0, 25, 50, 75, 100))) +
   scale_x_continuous(labels = c(5000, 2500, 0, 2500, 5000)) +
   labs(title = "Bevölkerungspyramide Stadt Zürich",
-       subtitle = "2022",
+       subtitle = paste0(max(df$StichtagDatJahr)),
        x = "Anzahl Personen",
        y = "Alter",
        caption = "Quelle: BVS, Statistik Stadt Zürich") +

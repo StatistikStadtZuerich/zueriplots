@@ -17,13 +17,9 @@ library(ggpattern)
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdichten_flaechen_od5802/download/BEV580OD5802.csv"
 data <- fread(URL, encoding = "UTF-8") %>% 
-  filter(StichtagDatJahr == 2022 & RaumKategorie == "Stadtkreis") %>% 
-  select(RaumSort, RaumLang, DichteT) %>% 
-  rename(Kreisname = RaumLang) %>% 
-  mutate(quantiles = cut(DichteT,
-                         breaks = quantile_vec,
-                         labels = labels$labels,
-                         include.lowest = T))
+  filter(StichtagDatJahr == max(StichtagDatJahr) & RaumKategorie == "Stadtkreis") %>% 
+  select(StichtagDatJahr, RaumSort, RaumLang, DichteT) %>% 
+  rename(Kreisname = RaumLang)
 
 # Shape Files
 URL_geojson <- "https://raw.githubusercontent.com/StatistikStadtZuerich/sszvis/master/geodata/stadtkreise.json"
@@ -45,6 +41,13 @@ labels <- tibble(
   slice(1:n() - 1) %>% 
   mutate_all(round, digits = 0) %>% 
   mutate(labels = paste(lab1, lab2, sep = " bis "))
+
+# Join Labels to Data
+data <- data %>% 
+  mutate(quantiles = cut(DichteT,
+                         breaks = quantile_vec,
+                         labels = labels$labels,
+                         include.lowest = T))
 
 # Join Data to Shapefile
 df <- quartiere %>% 
@@ -76,7 +79,7 @@ plot <- ggplot() +
   scale_fill_manual(values = colors,
                     name = "Personen pro ha") +
   labs(title = "Bevölkerungsdichte in der Stadt Zürich",
-       subtitle = "nach Stadtkreis (mit Bezug Gesamtfläche), 2022") +
+       subtitle = paste0("nach Stadtkreis (mit Bezug Gesamtfläche), ", max(df$StichtagDatJahr))) +
   ssz_theme_void(base_family = "HelveticaNeueLT Pro 55 Roman",
                  base_size = 12) +
   theme(legend.title = element_text(
