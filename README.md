@@ -40,7 +40,7 @@ ggplot(...) +
     margin = margin(t = 0, r = -27, b = 0, l = 0)
   ))
 ```
-In the end the axis title should look something like this:
+The value of the right margin of the axis title should be adjusted so that it looks something like this:
 
 <img src='pics/axis_text_right.PNG' />
 
