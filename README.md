@@ -10,6 +10,20 @@ Before you can start, you have to install `zueritheme` and `zuericolors` as well
 
 Further below you can find code examples of the most commonly used graph types.
 
+## Installing the required packages from the zueriverse
+
+Install zuericolors from GitHub
+```r
+# install.packages("pak")
+pak::pak("StatistikStadtZuerich/zuericolors")
+```
+
+Install zueritheme from GitHub
+```r
+# install.packages("pak")
+pak::pak("StatistikStadtZuerich/zueritheme")
+```
+
 ## Installing the font
 
 `HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. The `font_import()` function from the `extrafont` package imports the font and makes it accessable for R. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
@@ -56,6 +70,9 @@ ggplot(...) +
                     ...) +
   ssz_theme(grid_lines = "y")
 ```
+
+# Different plot types
+
 Example code for the most commonly used graph types at [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) is provided below.
 
 ## Bar Chart
