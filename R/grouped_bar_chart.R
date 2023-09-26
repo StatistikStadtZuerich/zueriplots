@@ -1,4 +1,4 @@
-# SSZ stacked Bar Chart -----------------------------------------------------------
+# SSZ Grouped Bar Chart -----------------------------------------------------------
 
 # Required Libraries
 library(ggplot2)
@@ -10,7 +10,7 @@ library(here)
 library(extrafont)
 
 # Data
-URL <- URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
+URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
 df <- fread(URL, encoding = "UTF-8") %>% 
   filter(Jahr >= 2010) %>% 
   group_by(Jahr) %>% 
@@ -31,33 +31,38 @@ windowsFonts()
 
 # Plot
 plot <- ggplot(data = df,
-       aes(x = AntBev,
-           y = Jahr,
+       aes(x = Jahr,
+           y = AntBev,
            fill = reorder(Bildungsstand, -rang))) +
   geom_bar(stat = "identity",
+           position = position_dodge(width = 0.7),
            width = 0.6) +
-  geom_errorbar(aes(y = Jahr,
-                    xmin = AntCumUn,
-                    xmax = AntCumOb),
+  geom_errorbar(aes(x = Jahr,
+                    ymin = untAntBevKI,
+                    ymax = obAntBevKI),
                 width = 0.1,
                 linewidth = 0.25,
+                position = position_dodge(width = 0.7),
                 color = get_zuericolors(palette = "seq6gry",
                                         nth = 6)) +
   scale_fill_manual(values = colors) +
-  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
   labs(title = "Bevölkerung nach Bildungsstand",
        subtitle = "seit 2010",
-       x = "Anteil (in %)",
-       y = "",
+       x = " ",
+       y = "Anteil (in %)",
        caption = "Quelle: Strukturerhebung, Bundesamt für Statistik.\n95%-Konfidenzintervalle") +
-  ssz_theme(grid_lines = "x",
+  ssz_theme(grid_lines = "y",
             base_family = "HelveticaNeueLT Pro 55 Roman",
-            base_size = 12)
+            base_size = 12) +
+  theme(axis.title.y = element_text(
+    margin = margin(t = 0, r = -13, b = 0, l = 0)
+  ))
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/stacked_bar_chart.png"),
+  paste0(here(), "/plots/grouped_bar_chart.png"),
   plot,
-  width = 10,
-  height = 6
+  width = 12,
+  height = 7
 )
