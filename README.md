@@ -26,7 +26,7 @@ pak::pak("StatistikStadtZuerich/zueritheme")
 
 ## Installing the font
 
-`HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. The `font_import()` function from the `extrafont` package imports the font and makes it accessable for R. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
+`HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. The `font_import()` function from the `extrafont` package imports the font and makes it accessible for R. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
 
 ``` r
 # install.packages("extrafont")
@@ -44,7 +44,7 @@ In `ggplot2` the axis titles are positioned relative to the axis tick labels. Fo
 
 <img src='pics/axis_text.PNG' />
 
-Since the position of the axis titles therefore depends on the scaling (or length of strings if categories) of the displayed variable, the title must be positioned with `margin(r = ...)` in addition to the `theme()` function in order to conform to the corporate design. The axis title should be right-justified and aligned with the axis labels.
+Since the position of the axis titles therefore depends on the scaling (or length of strings if categories) of the displayed variable, the title must be positioned with `margin(r = ...)` in addition to the `theme()` function in order to conform to the corporate design. The axis title should be right-justified and aligned with the axis labels. In the example below we set the right-margin to -27.
 
 ``` r
 ggplot(...) +
@@ -54,7 +54,7 @@ ggplot(...) +
     margin = margin(t = 0, r = -27, b = 0, l = 0)
   ))
 ```
-The value of the right margin of the axis title should be adjusted so that it looks something like this:
+The value of the right margin of the axis title for this example should be adjusted to -27 so it looks something like this:
 
 <img src='pics/axis_text_right.PNG' />
 
@@ -125,6 +125,8 @@ You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035
 You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pie_chart.R).
 
 Note: Pie charts are usually used to show the relationship between parts and the whole of a data set, i.e. how big part A is in relation to part B, C, etc. The problem with pie charts is that they force us to compare areas (or angles), which is often quite difficult to do. Furthermore, pie charts are only used when manageable number of groups are to be compared and these groups are easily distinguishable by color.
+
+We recommend using an alternative chart type if possible.
 
 <img src='plots/pie_chart.png' height="400"/>
 
