@@ -136,7 +136,7 @@ You can find the R code for this graphic [here](https://github.com/StatistikStad
 <img src='plots/doughnut_chart.png' height="400"/>
 
 ## Heatmap Chart
-You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/histogram_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/heatmap_chart.R).
 
 <img src='plots/heatmap_chart.png' height="400"/>
 
