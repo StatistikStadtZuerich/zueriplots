@@ -77,52 +77,52 @@ Example code for the most commonly used graph types at [Statistik Stadt Zürich]
 
 ## Bar Chart
 ### Simple Bar Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/bar_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/bar_chart.R).
 
 <img src='plots/bar_chart.png' height="400"/>
 
 ### Stacked Bar Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/stacked_bar_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/stacked_bar_chart.R).
 
 <img src='plots/stacked_bar_chart.png' height="400"/>
 
 ### Grouped Bar Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/grouped_bar_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/grouped_bar_chart.R).
 
 <img src='plots/grouped_bar_chart.png' height="400"/>
 
 ## Pyramid Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pyramid_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/pyramid_chart.R).
 
 <img src='plots/pyramid_chart.png' height="400"/>
 
 ## Histogram Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/histogram_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/histogram_chart.R).
 
 <img src='plots/histogram_chart.png' height="400"/>
 
 ## Boxplot Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/boxplot_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/boxplot_chart.R).
 
 <img src='plots/boxplot_chart.png' height="400"/>
 
 ## Line Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/line_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/line_chart.R).
 
 <img src='plots/line_chart.png' height="400"/>
 
 ## Area Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/area_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/area_chart.R).
 
 <img src='plots/area_chart.png' height="400"/>
 
 ## Scatterplot Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/scatterplot_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/scatterplot_chart.R).
 
 <img src='plots/scatterplot_chart.png' height="400"/>
 
 ## Pie Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/pie_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/pie_chart.R).
 
 Note: Pie charts are usually used to show the relationship between parts and the whole of a data set, i.e. how big part A is in relation to part B, C, etc. The problem with pie charts is that they force us to compare areas (or angles), which is often quite difficult to do. Furthermore, pie charts are only used when manageable number of groups are to be compared and these groups are easily distinguishable by color.
 
@@ -131,22 +131,22 @@ We recommend using an alternative chart type if possible.
 <img src='plots/pie_chart.png' height="400"/>
 
 ## Doughnut Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/doughnut_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/doughnut_chart.R).
 
 <img src='plots/doughnut_chart.png' height="400"/>
 
 ## Heatmap Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/heatmap_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/histogram_chart.R).
 
 <img src='plots/heatmap_chart.png' height="400"/>
 
 ## Ridgeline Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/ridgeline_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/ridgeline_chart.R).
 
 <img src='plots/ridgeline_chart.png' height="400"/>
 
 ## Map Chart
-You can find the R code for this graphic [here](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/zueriverse/zueriplots/-/blob/feature/chart_types/R/map_chart.R).
+You can find the R code for this graphic [here](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/R/map_chart.R).
 
 <img src='plots/map_chart.png' height="400"/>
 
