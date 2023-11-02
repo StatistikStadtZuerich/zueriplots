@@ -26,7 +26,7 @@ pak::pak("StatistikStadtZuerich/zueritheme")
 
 ## Installing the font
 
-`HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. The `font_import()` function from the `extrafont` package imports the font and makes it accessible for R. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
+`HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. To make it available, copy the font-related files from "C:\Program Files\Common Files\Adobe\Fonts" to "c:\windows\Fonts". The `font_import()` function from the `extrafont` package then imports the font and makes it accessible for R. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
 
 ``` r
 # install.packages("extrafont")
