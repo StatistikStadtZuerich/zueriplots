@@ -7,7 +7,7 @@ library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
-library(extrafont)
+library(showtext)
 
 # Data
 df <- data.frame(kat = c(rep("A", 500),
@@ -24,10 +24,14 @@ df <- data.frame(kat = c(rep("A", 500),
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = 1:4)
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro (Change path to where the font is)
+font_add(family = "Helv", 
+         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
+         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
 plot <- ggplot(data = df,
@@ -45,7 +49,7 @@ plot <- ggplot(data = df,
        x = " ",
        y = "Verteilung") +
   ssz_theme(grid_lines = "y",
-            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_family = "Helv",
             base_size = 12) +
   theme(axis.title.y = element_text(
     margin = margin(t = 0, r = -13, b = 0, l = 0)
