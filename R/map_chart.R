@@ -7,7 +7,7 @@ library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
-library(extrafont)
+library(showtext)
 library(sf)
 library(httr)
 library(broom)
@@ -36,8 +36,7 @@ quantile_vec <- data %>%
 # Make Labels for Plot
 labels <- tibble(
   lab1 = c(quantile_vec[1], quantile_vec[2:5] + 1),
-  lab2 = c(quantile_vec[2:length(quantile_vec)], NA)
-) %>% 
+  lab2 = c(quantile_vec[2:length(quantile_vec)], NA)) %>% 
   slice(1:n() - 1) %>% 
   mutate_all(round, digits = 0) %>% 
   mutate(labels = paste(lab1, lab2, sep = " bis "))
@@ -57,10 +56,14 @@ df <- quartiere %>%
 colors <- get_zuericolors(palette = "seq9blu", nth = c(1, 3, 5, 7, 9))
 colors_see <- get_zuericolors(palette = "seq6gry", nth = c(1, 2))
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro (Change path to where the font is)
+font_add(family = "Helv", 
+         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
+         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
 plot <- ggplot() +
@@ -80,7 +83,7 @@ plot <- ggplot() +
                     name = "Personen pro ha") +
   labs(title = "Bevölkerungsdichte in der Stadt Zürich",
        subtitle = paste0("nach Stadtkreis (mit Bezug Gesamtfläche), ", max(df$StichtagDatJahr))) +
-  ssz_theme_void(base_family = "HelveticaNeueLT Pro 55 Roman",
+  ssz_theme_void(base_family = "Helv",
                  base_size = 12) +
   theme(legend.title = element_text(
     color = "#020304",
