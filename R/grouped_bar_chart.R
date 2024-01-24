@@ -8,6 +8,7 @@ library(data.table)
 library(dplyr)
 library(here)
 library(showtext)
+library(rappdirs)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
@@ -24,10 +25,12 @@ df <- fread(URL, encoding = "UTF-8") %>%
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = c(1, 4, 2))
 
-# Import HelveticaNeue LT Pro (Change path to where the font is)
+# Import HelveticaNeue LT Pro
+path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+
 font_add(family = "Helv", 
-         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
-         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
 
 # Plotting Resolution Parameters
 showtext_auto()

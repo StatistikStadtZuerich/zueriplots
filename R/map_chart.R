@@ -13,6 +13,7 @@ library(httr)
 library(broom)
 library(tidyr)
 library(ggpattern)
+library(rappdirs)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdichten_flaechen_od5802/download/BEV580OD5802.csv"
@@ -56,10 +57,12 @@ df <- quartiere %>%
 colors <- get_zuericolors(palette = "seq9blu", nth = c(1, 3, 5, 7, 9))
 colors_see <- get_zuericolors(palette = "seq6gry", nth = c(1, 2))
 
-# Import HelveticaNeue LT Pro (Change path to where the font is)
+# Import HelveticaNeue LT Pro
+path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+
 font_add(family = "Helv", 
-         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
-         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
 
 # Plotting Resolution Parameters
 showtext_auto()

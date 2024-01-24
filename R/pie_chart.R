@@ -9,6 +9,7 @@ library(dplyr)
 library(here)
 library(ggpubr)
 library(showtext)
+library(rappdirs)
 
 # Data
 df <- data.frame(kat =c ("A", "B", "C"),
@@ -22,10 +23,12 @@ df$label <- paste0(df$wert, " %")
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = c(3:6))
 
-# Import HelveticaNeue LT Pro (Change path to where the font is)
+# Import HelveticaNeue LT Pro
+path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+
 font_add(family = "Helv", 
-         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
-         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
 
 # Plotting Resolution Parameters
 showtext_auto()

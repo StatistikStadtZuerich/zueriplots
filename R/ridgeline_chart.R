@@ -12,6 +12,7 @@ library(viridis)
 library(ggridges)
 library(lubridate)
 library(forcats)
+library(rappdirs)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/ugz_meteodaten_tagesmittelwerte/download/ugz_ogd_meteo_d1_2021.csv"
@@ -23,10 +24,12 @@ df <- fread(URL, encoding = "UTF-8") %>%
 # Define Colors
 colors <- get_zuericolors(palette = "div9val", nth = c(9, 4, 3))
 
-# Import HelveticaNeue LT Pro (Change path to where the font is)
+# Import HelveticaNeue LT Pro
+path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+
 font_add(family = "Helv", 
-         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
-         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
 
 # Plotting Resolution Parameters
 showtext_auto()
