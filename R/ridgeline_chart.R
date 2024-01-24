@@ -7,7 +7,7 @@ library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
-library(extrafont)
+library(showtext)
 library(viridis)
 library(ggridges)
 library(lubridate)
@@ -23,10 +23,14 @@ df <- fread(URL, encoding = "UTF-8") %>%
 # Define Colors
 colors <- get_zuericolors(palette = "div9val", nth = c(9, 4, 3))
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro (Change path to where the font is)
+font_add(family = "Helv", 
+         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
+         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
 plot <- ggplot(data = df,
@@ -47,7 +51,7 @@ plot <- ggplot(data = df,
        title = "Tagesmittelwerte an der Stampfenbachstrasse",
        subtitle = "2021") +
   ssz_theme(grid_lines = "y",
-            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_family = "Helv",
             base_size = 12)
 
 # Save Plot
