@@ -8,7 +8,7 @@ library(data.table)
 library(dplyr)
 library(here)
 library(ggpubr)
-library(extrafont)
+library(showtext)
 
 # Data
 df <- data.frame(kat =c ("A", "B", "C"),
@@ -22,10 +22,14 @@ df$label <- paste0(df$wert, " %")
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = c(3:6))
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro (Change path to where the font is)
+font_add(family = "Helv", 
+         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
+         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
 plot <- ggplot(data = df,
@@ -40,14 +44,15 @@ plot <- ggplot(data = df,
             aes(y = labelPosition,
                 label = label),
             size = 3.5,
-            color = "white") +
+            color = "white",
+            family = "Helv") +
   scale_fill_manual(values = colors) +
   labs(title = "Anteile einer erfundenen Verteilung",
        subtitle = "2023",
        caption = "Quelle: Fiktive Zahlen") +
   xlim(c(2, 4)) +
   coord_polar(theta="y") +
-  ssz_theme_void(base_family = "HelveticaNeueLT Pro 55 Roman",
+  ssz_theme_void(base_family = "Helv",
                  base_size = 12)
 
 # Save Plot
