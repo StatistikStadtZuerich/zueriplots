@@ -7,7 +7,7 @@ library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
-library(extrafont)
+library(showtext)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903/download/BEV390OD3903.csv"
@@ -21,10 +21,14 @@ df <- fread(URL, encoding = "UTF-8") %>%
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = 1:2)
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro (Change path to where the font is)
+font_add(family = "Helv", 
+         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
+         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
 plot <- ggplot(data = df,
@@ -41,7 +45,7 @@ plot <- ggplot(data = df,
        y = "Alter",
        caption = "Quelle: BVS, Statistik Stadt Zürich") +
   ssz_theme(grid_lines = "none",
-            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_family = "Helv",
             base_size = 11) +
   theme(axis.title.y = element_text(
     margin = margin(t = 0, r = -20, b = 0, l = 0)
