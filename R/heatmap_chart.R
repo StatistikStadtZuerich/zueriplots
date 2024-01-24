@@ -7,7 +7,7 @@ library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
-library(extrafont)
+library(showtext)
 
 # Data
 x <- LETTERS[1:26]
@@ -19,10 +19,14 @@ df$Z <- runif(676, 0, 100)
 # Define Colors
 colors <- get_zuericolors(palette = "seq9red", nth = c(1, 9))
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro (Change path to where the font is)
+font_add(family = "Helv", 
+         regular = "C:/Path_to_the_Font/HelveticaNeueLTPro-Roman.ttf",
+         bold = "C:/Path_to_the_Font/HelveticaNeueLTPro-Hv.ttf")
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
 plot <- ggplot(data = df,
@@ -39,7 +43,7 @@ plot <- ggplot(data = df,
        subtitle = "2023",
        caption = "Quelle: Fiktive Zahlen") +
   ssz_theme(grid_lines = "both",
-            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_family = "Helv",
             base_size = 12)
 
 # Save Plot
