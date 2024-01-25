@@ -38,7 +38,7 @@ path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsof
 
 font_add(family = "Helv", 
          regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
-         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
+         bold = paste0(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
          
 showtext_auto()
 showtext_opts(dpi = 300)
