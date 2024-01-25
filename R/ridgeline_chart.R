@@ -1,18 +1,18 @@
 # SSZ Ridgeline Chart -----------------------------------------------------------
 
 # Required Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
 library(data.table)
 library(dplyr)
+library(forcats)
+library(ggplot2)
+library(ggridges)
 library(here)
+library(lubridate)
+library(rappdirs)
 library(showtext)
 library(viridis)
-library(ggridges)
-library(lubridate)
-library(forcats)
-library(rappdirs)
+library(zuericolors)
+library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/ugz_meteodaten_tagesmittelwerte/download/ugz_ogd_meteo_d1_2021.csv"
@@ -25,18 +25,18 @@ df <- fread(URL, encoding = "UTF-8") %>%
 colors <- get_zuericolors(palette = "div9val", nth = c(9, 4, 3))
 
 # Import HelveticaNeue LT Pro
-path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
 font_add(family = "Helv", 
-         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
-         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
 # Plotting Resolution Parameters
 showtext_auto()
 showtext_opts(dpi = 300)
 
 # Plot
-plot <- ggplot(data = df,
+p <- ggplot(data = df,
        aes(x = Wert,
            y = month,
            fill = after_stat(x))) +
@@ -59,8 +59,8 @@ plot <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/ridgeline_chart.png"),
-  plot,
+  here("plots", "ridgeline_chart.png"),
+  p,
   width = 8,
   height = 6
 )

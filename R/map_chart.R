@@ -1,19 +1,18 @@
 # SSZ Ridgeline Chart -----------------------------------------------------------
 
 # Required Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
-library(showtext)
-library(sf)
-library(httr)
-library(broom)
-library(tidyr)
 library(ggpattern)
+library(ggplot2)
+library(httr)
 library(rappdirs)
+library(sf)
+library(showtext)
+library(tidyr)
+library(zuericolors)
+library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdichten_flaechen_od5802/download/BEV580OD5802.csv"
@@ -58,18 +57,18 @@ colors <- get_zuericolors(palette = "seq9blu", nth = c(1, 3, 5, 7, 9))
 colors_see <- get_zuericolors(palette = "seq6gry", nth = c(1, 2))
 
 # Import HelveticaNeue LT Pro
-path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
 font_add(family = "Helv", 
-         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
-         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
 # Plotting Resolution Parameters
 showtext_auto()
 showtext_opts(dpi = 300)
 
 # Plot
-plot <- ggplot() +
+p <- ggplot() +
   geom_sf(data = df,
           aes(fill = quantiles),
           color = "white",
@@ -96,8 +95,8 @@ plot <- ggplot() +
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/map_chart.png"),
-  plot,
+  here("plots", "map_chart.png"),
+  p,
   width = 8,
   height = 6
 )

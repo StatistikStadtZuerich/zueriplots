@@ -1,15 +1,15 @@
 # SSZ Pie Chart -----------------------------------------------------------
 
 # Required Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
+library(ggplot2)
 library(ggpubr)
-library(showtext)
 library(rappdirs)
+library(showtext)
+library(zuericolors)
+library(zueritheme)
 
 # Data
 df <- data.frame(kat =c ("A", "B", "C"),
@@ -24,18 +24,18 @@ df$label <- paste0(df$wert, " %")
 colors <- get_zuericolors(palette = "qual6", nth = c(3:6))
 
 # Import HelveticaNeue LT Pro
-path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
 font_add(family = "Helv", 
-         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
-         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
 # Plotting Resolution Parameters
 showtext_auto()
 showtext_opts(dpi = 300)
 
 # Plot
-plot <- ggplot(data = df,
+p <- ggplot(data = df,
        aes(ymax = ymax,
            ymin = ymin,
            fill = kat,
@@ -59,8 +59,8 @@ plot <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/pie_chart.png"),
-  plot,
+  here("plots", "pie_chart.png"),
+  p,
   width = 6,
   height = 5
 )

@@ -1,14 +1,14 @@
 # SSZ Grouped Bar Chart -----------------------------------------------------------
 
 # Required Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
 library(data.table)
 library(dplyr)
+library(ggplot2)
 library(here)
-library(showtext)
 library(rappdirs)
+library(showtext)
+library(zuericolors)
+library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
@@ -26,18 +26,18 @@ df <- fread(URL, encoding = "UTF-8") %>%
 colors <- get_zuericolors(palette = "qual6", nth = c(1, 4, 2))
 
 # Import HelveticaNeue LT Pro
-path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
 font_add(family = "Helv", 
-         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
-         bold = paste0(path_to_font, "HelveticaNeueLTPro-HV_0.ttf"))
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
 # Plotting Resolution Parameters
 showtext_auto()
 showtext_opts(dpi = 300)
 
 # Plot
-plot <- ggplot(data = df,
+p <- ggplot(data = df,
        aes(x = Jahr,
            y = AntBev,
            fill = reorder(Bildungsstand, -rang))) +
@@ -68,8 +68,8 @@ plot <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/grouped_bar_chart.png"),
-  plot,
+  here("plots", "grouped_bar_chart.png"),
+  p,
   width = 12,
   height = 7
 )
