@@ -31,7 +31,7 @@ pak::pak("StatistikStadtZuerich/zueritheme")
 ``` r
 # install.packages("rappdirs")
 # install.packages("showtext")
-library(extrafont)
+library(showtext)
 library(rappdirs)
 
 path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
