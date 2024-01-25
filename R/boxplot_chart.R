@@ -1,13 +1,14 @@
 # SSZ Boxplot Chart -----------------------------------------------------------
 
 # Required Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
 library(data.table)
 library(dplyr)
+library(ggplot2)
 library(here)
-library(extrafont)
+library(rappdirs)
+library(showtext)
+library(zuericolors)
+library(zueritheme)
 
 # Data
 df <- data.frame(kat = c(rep("A", 500),
@@ -24,13 +25,19 @@ df <- data.frame(kat = c(rep("A", 500),
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = 1:4)
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
+
+font_add(family = "Helv", 
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
-plot <- ggplot(data = df,
+p <- ggplot(data = df,
                aes(x = kat,
                    y = wert,
                    fill = kat)) +
@@ -45,7 +52,7 @@ plot <- ggplot(data = df,
        x = " ",
        y = "Verteilung") +
   ssz_theme(grid_lines = "y",
-            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_family = "Helv",
             base_size = 12) +
   theme(axis.title.y = element_text(
     margin = margin(t = 0, r = -13, b = 0, l = 0)
@@ -53,8 +60,8 @@ plot <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/boxplot_chart.png"),
-  plot,
+  here("plots", "boxplot_chart.png"),
+  p,
   width = 10,
   height = 6
 )

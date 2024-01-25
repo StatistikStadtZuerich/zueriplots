@@ -1,13 +1,14 @@
 # SSZ stacked Bar Chart -----------------------------------------------------------
 
 # Required Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
 library(data.table)
 library(dplyr)
+library(ggplot2)
 library(here)
-library(extrafont)
+library(rappdirs)
+library(showtext)
+library(zuericolors)
+library(zueritheme)
 
 # Data
 URL <- URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
@@ -24,13 +25,19 @@ df <- fread(URL, encoding = "UTF-8") %>%
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = c(1, 4, 2))
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
+
+font_add(family = "Helv", 
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
-plot <- ggplot(data = df,
+p <- ggplot(data = df,
        aes(x = AntBev,
            y = Jahr,
            fill = reorder(Bildungsstand, -rang))) +
@@ -51,13 +58,13 @@ plot <- ggplot(data = df,
        y = "",
        caption = "Quelle: Strukturerhebung, Bundesamt für Statistik.\n95%-Konfidenzintervalle") +
   ssz_theme(grid_lines = "x",
-            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_family = "Helv",
             base_size = 12)
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/stacked_bar_chart.png"),
-  plot,
+  here("plots", "stacked_bar_chart.png"),
+  p,
   width = 10,
   height = 6
 )

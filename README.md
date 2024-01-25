@@ -1,10 +1,10 @@
 # zueriplots
 
-The goal of this repository is to provide minimal code examples for [ggplot2](https://ggplot2.tidyverse.org/) graphs that conform to the corporate identity/design of the [city of Zurich](https://www.stadt-zuerich.ch/portal/de/index.html). Most of the required styling is done by [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme), while the [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors) package takes care of the colors.
+The goal of this repository is to provide minimal code examples for [ggplot2](https://ggplot2.tidyverse.org/) graphics that conform to the corporate identity/design of the [city of Zurich](https://www.stadt-zuerich.ch/portal/de/index.html). Most of the required styling is done by [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme), while the [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors) package provide the official color palettes.
 
 ## Overview
 
-The `ssz_theme(...)` function from the `zueritheme` package provides most of the styling. However, in order for `ggplot2` graphs to conform to the corporate design, a few manual steps are still necessary. These steps will be explained below.
+The `ssz_theme(...)` function from the `zueritheme` package provides most of the styling. However, in order for `ggplot2` graphics to conform to the corporate design, a few manual steps are still necessary. These steps will be explained below.
 
 Before you can start, you have to install `zueritheme` and `zuericolors` as well as Zurich's official font `HelveticaNeueLTPro` (only available for city employees).
 
@@ -26,15 +26,25 @@ pak::pak("StatistikStadtZuerich/zueritheme")
 
 ## Installing the font
 
-`HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. To make it available, copy the font-related files from "C:\Program Files\Common Files\Adobe\Fonts" to "c:\windows\Fonts". The `font_import()` function from the `extrafont` package then imports the font and makes it accessible for R. Run `windwosFonts()` in order to see what fonts are available from your system. Finally, the font is loaded with `loadfonts(device = "win")` for Windows devices.
+`HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. To make it available, it is important to copy the font-related files from `C:\Program Files\Common Files\Adobe\Fonts` to `c:\windows\Fonts`. The font's system path will then be used in the `font_add()` function from the `showtext` package in order to import the font and make it accessible for R. `family` is the parameter that will be used when plotting within the `ssz_theme()` function.
 
 ``` r
-# install.packages("extrafont")
+# install.packages("rappdirs")
+# install.packages("showtext")
 library(extrafont)
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+library(rappdirs)
+
+path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+
+font_add(family = "Helv", 
+         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = paste0(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
+         
+showtext_auto()
+showtext_opts(dpi = 300)
 ```
+
+Before creating a graphic, it is recommended to invoke `showtext_auto()` so that the graphic text is rendered using `showtext`. The resolution of the graphic is controlled by using `showtext_opts(dpi = 300)`.
 
 ## Additional Manual Styling
 The `ssz_theme(...)` function does not take over all styling tasks that the CI/CD of the city of Zurich prescribes. Namely, the position of the axis titles as well as the spacing for the ten thousand numbers (see picture below) still need additional manual adjustment.
@@ -73,7 +83,7 @@ ggplot(...) +
 
 # Different plot types
 
-Example code for the most commonly used graph types at [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) is provided below.
+Example code for the most commonly used graphic types at [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) is provided below.
 
 ## Bar Chart
 ### Simple Bar Chart

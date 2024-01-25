@@ -1,18 +1,18 @@
 # SSZ Ridgeline Chart -----------------------------------------------------------
 
 # Required Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
 library(data.table)
 library(dplyr)
 library(here)
-library(extrafont)
-library(sf)
-library(httr)
-library(broom)
-library(tidyr)
 library(ggpattern)
+library(ggplot2)
+library(httr)
+library(rappdirs)
+library(sf)
+library(showtext)
+library(tidyr)
+library(zuericolors)
+library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdichten_flaechen_od5802/download/BEV580OD5802.csv"
@@ -36,8 +36,7 @@ quantile_vec <- data %>%
 # Make Labels for Plot
 labels <- tibble(
   lab1 = c(quantile_vec[1], quantile_vec[2:5] + 1),
-  lab2 = c(quantile_vec[2:length(quantile_vec)], NA)
-) %>% 
+  lab2 = c(quantile_vec[2:length(quantile_vec)], NA)) %>% 
   slice(1:n() - 1) %>% 
   mutate_all(round, digits = 0) %>% 
   mutate(labels = paste(lab1, lab2, sep = " bis "))
@@ -57,13 +56,19 @@ df <- quartiere %>%
 colors <- get_zuericolors(palette = "seq9blu", nth = c(1, 3, 5, 7, 9))
 colors_see <- get_zuericolors(palette = "seq6gry", nth = c(1, 2))
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
+
+font_add(family = "Helv", 
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
-plot <- ggplot() +
+p <- ggplot() +
   geom_sf(data = df,
           aes(fill = quantiles),
           color = "white",
@@ -80,7 +85,7 @@ plot <- ggplot() +
                     name = "Personen pro ha") +
   labs(title = "Bevölkerungsdichte in der Stadt Zürich",
        subtitle = paste0("nach Stadtkreis (mit Bezug Gesamtfläche), ", max(df$StichtagDatJahr))) +
-  ssz_theme_void(base_family = "HelveticaNeueLT Pro 55 Roman",
+  ssz_theme_void(base_family = "Helv",
                  base_size = 12) +
   theme(legend.title = element_text(
     color = "#020304",
@@ -90,8 +95,8 @@ plot <- ggplot() +
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/map_chart.png"),
-  plot,
+  here("plots", "map_chart.png"),
+  p,
   width = 8,
   height = 6
 )

@@ -1,13 +1,14 @@
 # SSZ Bar Chart -----------------------------------------------------------
 
 # Required Libraries
-library(ggplot2)
-library(zuericolors)
-library(zueritheme)
 library(data.table)
 library(dplyr)
+library(ggplot2)
 library(here)
-library(extrafont)
+library(rappdirs)
+library(showtext)
+library(zuericolors)
+library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903/download/BEV390OD3903.csv"
@@ -21,13 +22,19 @@ df <- fread(URL, encoding = "UTF-8") %>%
 # Define Colors
 colors <- get_zuericolors(palette = "qual6", nth = 1:2)
 
-# Import HelveticaNeueLTPro
-font_import(pattern = "HelveticaNeueLTPro-Roman.ttf")
-loadfonts(device = "win")
-windowsFonts()
+# Import HelveticaNeue LT Pro
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
+
+font_add(family = "Helv", 
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
+
+# Plotting Resolution Parameters
+showtext_auto()
+showtext_opts(dpi = 300)
 
 # Plot
-plot <- ggplot(data = df,
+p <- ggplot(data = df,
        aes(x = Anzahl,
            y = as.factor(AlterVSort),
            fill = SexLang)) +
@@ -41,7 +48,7 @@ plot <- ggplot(data = df,
        y = "Alter",
        caption = "Quelle: BVS, Statistik Stadt Zürich") +
   ssz_theme(grid_lines = "none",
-            base_family = "HelveticaNeueLT Pro 55 Roman",
+            base_family = "Helv",
             base_size = 11) +
   theme(axis.title.y = element_text(
     margin = margin(t = 0, r = -20, b = 0, l = 0)
@@ -49,8 +56,8 @@ plot <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  paste0(here(), "/plots/pyramid_chart.png"),
-  plot,
+  here("plots", "pyramid_chart.png"),
+  p,
   width = 6,
   height = 6
 )
