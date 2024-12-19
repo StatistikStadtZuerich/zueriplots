@@ -15,7 +15,7 @@ library(zuericolors)
 library(zueritheme)
 
 # Data
-URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdichten_flaechen_od5802/download/BEV580OD5802.csv"
+URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdichten_od5802/download/BEV580OD5802.csv"
 data <- fread(URL, encoding = "UTF-8") %>% 
   filter(StichtagDatJahr == max(StichtagDatJahr) & RaumKategorie == "Stadtkreis") %>% 
   select(StichtagDatJahr, RaumSort, RaumLang, DichteT) %>% 
