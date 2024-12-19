@@ -69,12 +69,12 @@ The value of the right margin of the axis title for this example should be adjus
 <img src='pics/axis_text_right.PNG' />
 
 ### Spacing for the Ten Thousand Numbers
-In order to get a nice spacing for the ten thousand numbers, we need to format the labels with `big.mark = " "` when applying the `scale_y_continous` function (or `scale_x_continuous` if numeric values are shown on the x axis).
+In order to get a nice spacing for the ten thousand numbers, we need to format the labels with `big.mark = " "` when applying the `scale_y_continuous` function (or `scale_x_continuous` if numeric values are shown on the x axis).
 
 ``` r
 ggplot(...) +
   geom_bar(...) +
-  scale_y_continous(labels = function(x) format(x,
+  scale_y_continuous(labels = function(x) format(x,
                                                 big.mark = " ", 
                                                 scientific = FALSE),
                     ...) +
