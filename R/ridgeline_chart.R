@@ -16,10 +16,10 @@ library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/ugz_meteodaten_tagesmittelwerte/download/ugz_ogd_meteo_d1_2021.csv"
-df <- fread(URL, encoding = "UTF-8") %>% 
-  filter(Standort == "Zch_Stampfenbachstrasse" & Parameter == "T") %>% 
+df <- fread(URL, encoding = "UTF-8") %>%
+  filter(Standort == "Zch_Stampfenbachstrasse" & Parameter == "T") %>%
   mutate(date = as.Date(Datum),
-         month = fct_rev(month(date, label = TRUE)))
+         month = fct_rev(lubridate::month(date, label = TRUE)))
 
 # Define Colors
 colors <- get_zuericolors(palette = "div9val", nth = c(9, 4, 3))
@@ -27,7 +27,7 @@ colors <- get_zuericolors(palette = "div9val", nth = c(9, 4, 3))
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -40,7 +40,7 @@ p <- ggplot(data = df,
        aes(x = Wert,
            y = month,
            fill = after_stat(x))) +
-  geom_density_ridges_gradient(scale = 3, 
+  geom_density_ridges_gradient(scale = 3,
                                rel_min_height = 0.01,
                                color= "white") +
   scale_y_discrete(expand = c(0, 0)) +
