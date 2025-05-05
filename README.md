@@ -26,6 +26,8 @@ pak::pak("StatistikStadtZuerich/zueritheme")
 
 ## Installing the font
 
+The following instructions are intended for employees of the city of Zurich working on a Windows computer. Instructions for other operating systems are currently not available.
+
 `HelveticaNeueLTPro` must be ordered in the software center and installed on your computer. To make it available, it is important to copy the font-related files from `C:\Program Files\Common Files\Adobe\Fonts` to `c:\windows\Fonts`. The font's system path will then be used in the `font_add()` function from the `showtext` package in order to import the font and make it accessible for R. `family` is the parameter that will be used when plotting within the `ssz_theme()` function.
 
 ``` r
@@ -34,11 +36,11 @@ pak::pak("StatistikStadtZuerich/zueritheme")
 library(extrafont)
 library(rappdirs)
 
-path_to_font <- paste0(user_config_dir(roaming = FALSE, os = "win"), "\\Microsoft\\Windows\\Fonts\\")
+path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
-         regular = paste0(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
-         bold = paste0(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
+font_add(family = "Helv",
+         regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
+         bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
          
 showtext_auto()
 showtext_opts(dpi = 300)
