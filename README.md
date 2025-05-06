@@ -54,7 +54,7 @@ The `ssz_theme(...)` function does not take over all styling tasks that the CI/C
 ### Axis Titles
 In `ggplot2` the axis titles are positioned relative to the axis tick labels. For `zueritheme` this means that e.g. the y-axis titles are positioned at the top left of the y-axis, right-justified at the axis tick labels.
 
-<img src='pics/axis_text.PNG' />
+<img src='man/figures/axis_text.PNG' />
 
 Since the position of the axis titles therefore depends on the scaling (or length of strings if categories) of the displayed variable, the title must be positioned with `margin(r = ...)` in addition to the `theme()` function in order to conform to the corporate design. The axis title should be right-justified and aligned with the axis labels. In the example below we set the right-margin to -27.
 
@@ -68,7 +68,7 @@ ggplot(...) +
 ```
 The value of the right margin of the axis title for this example should be adjusted to -27 so it looks something like this:
 
-<img src='pics/axis_text_right.PNG' />
+<img src='man/figures/axis_text_right.PNG' />
 
 ### Spacing for the Ten Thousand Numbers
 In order to get a nice spacing for the ten thousand numbers, we need to format the labels with `big.mark = " "` when applying the `scale_y_continuous` function (or `scale_x_continuous` if numeric values are shown on the x axis).
@@ -91,47 +91,47 @@ Example code for the most commonly used graphic types at [Statistik Stadt Züric
 ### Simple Bar Chart
 You can find the R code for this graphic [here](inst/examples/bar_chart.R).
 
-<img src='plots/bar_chart.png' height="400"/>
+<img src='man/figures/bar_chart.png' height="400"/>
 
 ### Stacked Bar Chart
 You can find the R code for this graphic [here](inst/examples/stacked_bar_chart.R).
 
-<img src='plots/stacked_bar_chart.png' height="400"/>
+<img src='man/figures/stacked_bar_chart.png' height="400"/>
 
 ### Grouped Bar Chart
 You can find the R code for this graphic [here](inst/examples/grouped_bar_chart.R).
 
-<img src='plots/grouped_bar_chart.png' height="400"/>
+<img src='man/figures/grouped_bar_chart.png' height="400"/>
 
 ## Pyramid Chart
 You can find the R code for this graphic [here](inst/examples/pyramid_chart.R).
 
-<img src='plots/pyramid_chart.png' height="400"/>
+<img src='man/figures/pyramid_chart.png' height="400"/>
 
 ## Histogram Chart
 You can find the R code for this graphic [here](inst/examples/histogram_chart.R).
 
-<img src='plots/histogram_chart.png' height="400"/>
+<img src='man/figures/histogram_chart.png' height="400"/>
 
 ## Boxplot Chart
 You can find the R code for this graphic [here](inst/examples/boxplot_chart.R).
 
-<img src='plots/boxplot_chart.png' height="400"/>
+<img src='man/figures/boxplot_chart.png' height="400"/>
 
 ## Line Chart
 You can find the R code for this graphic [here](inst/examples/line_chart.R).
 
-<img src='plots/line_chart.png' height="400"/>
+<img src='man/figures/line_chart.png' height="400"/>
 
 ## Area Chart
 You can find the R code for this graphic [here](inst/examples/area_chart.R).
 
-<img src='plots/area_chart.png' height="400"/>
+<img src='man/figures/area_chart.png' height="400"/>
 
 ## Scatterplot Chart
 You can find the R code for this graphic [here](inst/examples/scatterplot_chart.R).
 
-<img src='plots/scatterplot_chart.png' height="400"/>
+<img src='man/figures/scatterplot_chart.png' height="400"/>
 
 ## Pie Chart
 You can find the R code for this graphic [here](inst/examples/pie_chart.R).
@@ -140,27 +140,27 @@ Note: Pie charts are usually used to show the relationship between parts and the
 
 We recommend using an alternative chart type if possible.
 
-<img src='plots/pie_chart.png' height="400"/>
+<img src='man/figures/pie_chart.png' height="400"/>
 
 ## Doughnut Chart
 You can find the R code for this graphic [here](inst/examples/doughnut_chart.R).
 
-<img src='plots/doughnut_chart.png' height="400"/>
+<img src='man/figures/doughnut_chart.png' height="400"/>
 
 ## Heatmap Chart
 You can find the R code for this graphic [here](inst/examples/heatmap_chart.R).
 
-<img src='plots/heatmap_chart.png' height="400"/>
+<img src='man/figures/heatmap_chart.png' height="400"/>
 
 ## Ridgeline Chart
 You can find the R code for this graphic [here](inst/examples/ridgeline_chart.R).
 
-<img src='plots/ridgeline_chart.png' height="400"/>
+<img src='man/figures/ridgeline_chart.png' height="400"/>
 
 ## Map Chart
 You can find the R code for this graphic [here](inst/examples/map_chart.R).
 
-<img src='plots/map_chart.png' height="400"/>
+<img src='man/figures/map_chart.png' height="400"/>
 
 ## Getting Help
 If you encounter a bug, please contact statistik@zuerich.ch
