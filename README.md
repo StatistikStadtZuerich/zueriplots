@@ -2,6 +2,8 @@
 
 The goal of this repository is to provide minimal code examples for [ggplot2](https://ggplot2.tidyverse.org/) graphics that conform to the corporate identity/design of the [city of Zurich](https://www.stadt-zuerich.ch/portal/de/index.html). Most of the required styling is done by [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme), while the [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors) package provide the official color palettes.
 
+Note that this is an R package only for documentation purposes, it does not provide any exported functions.
+
 ## Overview
 
 The `ssz_theme(...)` function from the `zueritheme` package provides most of the styling. However, in order for `ggplot2` graphics to conform to the corporate design, a few manual steps are still necessary. These steps will be explained below.
