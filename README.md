@@ -89,52 +89,52 @@ Example code for the most commonly used graphic types at [Statistik Stadt Züric
 
 ## Bar Chart
 ### Simple Bar Chart
-You can find the R code for this graphic [here](R/bar_chart.R).
+You can find the R code for this graphic [here](inst/examples/bar_chart.R).
 
 <img src='plots/bar_chart.png' height="400"/>
 
 ### Stacked Bar Chart
-You can find the R code for this graphic [here](R/stacked_bar_chart.R).
+You can find the R code for this graphic [here](inst/examples/stacked_bar_chart.R).
 
 <img src='plots/stacked_bar_chart.png' height="400"/>
 
 ### Grouped Bar Chart
-You can find the R code for this graphic [here](R/grouped_bar_chart.R).
+You can find the R code for this graphic [here](inst/examples/grouped_bar_chart.R).
 
 <img src='plots/grouped_bar_chart.png' height="400"/>
 
 ## Pyramid Chart
-You can find the R code for this graphic [here](R/pyramid_chart.R).
+You can find the R code for this graphic [here](inst/examples/pyramid_chart.R).
 
 <img src='plots/pyramid_chart.png' height="400"/>
 
 ## Histogram Chart
-You can find the R code for this graphic [here](R/histogram_chart.R).
+You can find the R code for this graphic [here](inst/examples/histogram_chart.R).
 
 <img src='plots/histogram_chart.png' height="400"/>
 
 ## Boxplot Chart
-You can find the R code for this graphic [here](R/boxplot_chart.R).
+You can find the R code for this graphic [here](inst/examples/boxplot_chart.R).
 
 <img src='plots/boxplot_chart.png' height="400"/>
 
 ## Line Chart
-You can find the R code for this graphic [here](R/line_chart.R).
+You can find the R code for this graphic [here](inst/examples/line_chart.R).
 
 <img src='plots/line_chart.png' height="400"/>
 
 ## Area Chart
-You can find the R code for this graphic [here](R/area_chart.R).
+You can find the R code for this graphic [here](inst/examples/area_chart.R).
 
 <img src='plots/area_chart.png' height="400"/>
 
 ## Scatterplot Chart
-You can find the R code for this graphic [here](R/scatterplot_chart.R).
+You can find the R code for this graphic [here](inst/examples/scatterplot_chart.R).
 
 <img src='plots/scatterplot_chart.png' height="400"/>
 
 ## Pie Chart
-You can find the R code for this graphic [here](R/pie_chart.R).
+You can find the R code for this graphic [here](inst/examples/pie_chart.R).
 
 Note: Pie charts are usually used to show the relationship between parts and the whole of a data set, i.e. how big part A is in relation to part B, C, etc. The problem with pie charts is that they force us to compare areas (or angles), which is often quite difficult to do. Furthermore, pie charts are only used when manageable number of groups are to be compared and these groups are easily distinguishable by color.
 
@@ -143,22 +143,22 @@ We recommend using an alternative chart type if possible.
 <img src='plots/pie_chart.png' height="400"/>
 
 ## Doughnut Chart
-You can find the R code for this graphic [here](R/doughnut_chart.R).
+You can find the R code for this graphic [here](inst/examples/doughnut_chart.R).
 
 <img src='plots/doughnut_chart.png' height="400"/>
 
 ## Heatmap Chart
-You can find the R code for this graphic [here](R/heatmap_chart.R).
+You can find the R code for this graphic [here](inst/examples/heatmap_chart.R).
 
 <img src='plots/heatmap_chart.png' height="400"/>
 
 ## Ridgeline Chart
-You can find the R code for this graphic [here](R/ridgeline_chart.R).
+You can find the R code for this graphic [here](inst/examples/ridgeline_chart.R).
 
 <img src='plots/ridgeline_chart.png' height="400"/>
 
 ## Map Chart
-You can find the R code for this graphic [here](R/map_chart.R).
+You can find the R code for this graphic [here](inst/examples/map_chart.R).
 
 <img src='plots/map_chart.png' height="400"/>
 
