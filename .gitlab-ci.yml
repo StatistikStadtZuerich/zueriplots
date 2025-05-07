@@ -15,10 +15,12 @@ stages:
 
 r-pkgdown-build-no-commit:
   extends: ".r-pkgdown-build-no-commit"
+  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.3.3
 
 r-devtools-check:
   extends:
     - .r-devtools-check
+  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.3.3
 
 publish-main-to-github:
   extends:
