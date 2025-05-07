@@ -15,10 +15,14 @@ stages:
 
 r-pkgdown-build-no-commit:
   extends: ".r-pkgdown-build-no-commit"
+  before_script:
+    - Rscript -e "renv::restore(exclude = 'nloptr')"
 
 r-devtools-check:
   extends:
     - .r-devtools-check
+  before_script:
+    - Rscript -e "renv::restore(exclude = 'nloptr')"
 
 publish-main-to-github:
   extends:
