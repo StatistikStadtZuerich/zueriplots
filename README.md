@@ -1,4 +1,12 @@
+<img src="man/figures/Hexagon_zueriplots.png" alt="Hexagon logo for zueriplots R package" align="right" height="138.5" width="138.5"/>
+
 # zueriplots
+
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/zueritheme)](https://CRAN.R-project.org/package=zueriplots)
+[![R-CMD-check](https://github.com/StatistikStadtZuerich/zueriplots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StatistikStadtZuerich/zueriplots/actions/workflows/R-CMD-check.yaml)
+[![GitLab Pipeline](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/libraries/zueriverse/zueriplots/badges/main/pipeline.svg?key_text=GitlabPipeline&key_width=100)](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/libraries/zueriverse/zueriplots/badges/main/pipeline.svg?key_text=GitLabPipeline&key_width=100)
+<!-- badges: end -->
 
 The goal of this repository is to provide minimal code examples for [ggplot2](https://ggplot2.tidyverse.org/) graphics that conform to the corporate identity/design of the [city of Zurich](https://www.stadt-zuerich.ch/portal/de/index.html). Most of the required styling is done by [zueritheme](https://github.com/StatistikStadtZuerich/zueritheme), while the [zuericolors](https://github.com/StatistikStadtZuerich/zuericolors) package provide the official color palettes.
 
