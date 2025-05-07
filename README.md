@@ -3,7 +3,7 @@
 # zueriplots
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/zueritheme)](https://CRAN.R-project.org/package=zueriplots)
+[![CRAN status](https://www.r-pkg.org/badges/version/zueriplots)](https://CRAN.R-project.org/package=zueriplots)
 [![R-CMD-check](https://github.com/StatistikStadtZuerich/zueriplots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StatistikStadtZuerich/zueriplots/actions/workflows/R-CMD-check.yaml)
 [![GitLab Pipeline](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/libraries/zueriverse/zueriplots/badges/main/pipeline.svg?key_text=GitlabPipeline&key_width=100)](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/libraries/zueriverse/zueriplots/badges/main/pipeline.svg?key_text=GitLabPipeline&key_width=100)
 <!-- badges: end -->
@@ -173,4 +173,4 @@ You can find the R code for this graphic [here](inst/examples/map_chart.R).
 <img src='man/figures/map_chart.png' alt="example map" height="400"/>
 
 ## Getting Help
-If you encounter a bug, please contact [statistik\@zuerich.ch](mailto:statistik@zuerich.ch).
+If you encounter a bug, please contact [statistik@zuerich.ch](mailto:statistik@zuerich.ch).
