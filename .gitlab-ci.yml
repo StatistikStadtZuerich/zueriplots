@@ -1,8 +1,24 @@
-# use template for gitlab pipeline to push main to github 
+# use template for gitlab pipeline to push main to github
 include:
   - project: "OE-7035/ssz-da/templates/pipeline-templates"
     ref: "main"
     file: "publish-to-github.yml"
+    # use template for gitlab pipeline to check and build
+  - project: "OE-7035/ssz-da/templates/pipeline-templates"
+    ref: "main"
+    file: "r-check-and-build-packages.yml"
+
+stages:
+  - test
+  - build
+  - deploy-prod
+
+r-pkgdown-build-no-commit:
+  extends: ".r-pkgdown-build-no-commit"
+
+r-devtools-check:
+  extends:
+    - .r-devtools-check
 
 publish-main-to-github:
   extends:
