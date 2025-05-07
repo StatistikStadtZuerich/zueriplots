@@ -20,7 +20,7 @@ color <- get_zuericolors(palette = "qual6", nth = 1)
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -35,8 +35,8 @@ p <- ggplot(data = df,
   geom_bar(stat = "identity",
            fill = color,
            width = 0.7) +
-  scale_y_continuous(labels = function(x) format(x, 
-                                                 big.mark = " ", 
+  scale_y_continuous(labels = function(x) format(x,
+                                                 big.mark = " ",
                                                  scientific = FALSE)) +
   scale_x_continuous(expand = c(0, 0),
                      limits = c(min(df$StichtagDatJahr) - 1, max(df$StichtagDatJahr) + 1),
@@ -55,7 +55,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "bar_chart.png"),
+  here("man", "figures", "bar_chart.png"),
   p,
   width = 10,
   height = 6

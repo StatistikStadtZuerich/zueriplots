@@ -12,8 +12,8 @@ library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_herkunft_geschlecht_od3222/download/BEV322OD3222.csv"
-df <- fread(URL, encoding = "UTF-8") %>% 
-  group_by(StichtagDatJahr, HerkunftLang) %>% 
+df <- fread(URL, encoding = "UTF-8") %>%
+  group_by(StichtagDatJahr, HerkunftLang) %>%
   summarise(AnzBestWir = sum(AnzBestWir))
 
 # Define Colors
@@ -22,7 +22,7 @@ colors <- get_zuericolors(palette = "qual6b", nth = c(6, 5))
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -37,8 +37,8 @@ p <- ggplot(data = df,
            fill = HerkunftLang)) +
   geom_area(color = "white") +
   scale_fill_manual(values = colors) +
-  scale_y_continuous(labels = function(x) format(x, 
-                                                 big.mark = " ", 
+  scale_y_continuous(labels = function(x) format(x,
+                                                 big.mark = " ",
                                                  scientific = FALSE),
                      limits = c(0, 500000),
                      breaks = seq(0, 450000, 50000)) +
@@ -59,7 +59,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "area_chart.png"),
+  here("man", "figures", "area_chart.png"),
   p,
   width = 10,
   height = 6

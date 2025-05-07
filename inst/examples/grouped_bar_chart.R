@@ -12,12 +12,12 @@ library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bfs_bev_bildungsstand_seit1970_od1002/download/BIL100OD1002.csv"
-df <- fread(URL, encoding = "UTF-8") %>% 
-  filter(Jahr >= 2010) %>% 
-  group_by(Jahr) %>% 
+df <- fread(URL, encoding = "UTF-8") %>%
+  filter(Jahr >= 2010) %>%
+  group_by(Jahr) %>%
   mutate(AntCum = cumsum(AntBev),
-         rang = seq(1:3)) %>% 
-  ungroup() %>% 
+         rang = seq(1:3)) %>%
+  ungroup() %>%
   mutate(AntCumUn = AntCum - (AntBev - untAntBevKI),
          AntCumOb = AntCum + (obAntBevKI - AntBev),
          Jahr = as.factor(Jahr))
@@ -28,7 +28,7 @@ colors <- get_zuericolors(palette = "qual6", nth = c(1, 4, 2))
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -68,7 +68,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "grouped_bar_chart.png"),
+  here("man", "figures", "grouped_bar_chart.png"),
   p,
   width = 12,
   height = 7

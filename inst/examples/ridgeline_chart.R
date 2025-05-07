@@ -59,7 +59,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "ridgeline_chart.png"),
+  here("man", "figures", "ridgeline_chart.png"),
   p,
   width = 8,
   height = 6

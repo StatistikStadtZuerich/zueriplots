@@ -28,7 +28,7 @@ colors <- get_zuericolors(palette = "qual6", nth = 1:4)
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -60,7 +60,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "boxplot_chart.png"),
+  here("man", "figures", "boxplot_chart.png"),
   p,
   width = 10,
   height = 6

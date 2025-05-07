@@ -12,10 +12,10 @@ library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903/download/BEV390OD3903.csv"
-df <- fread(URL, encoding = "UTF-8") %>% 
-  filter(StichtagDatJahr == max(StichtagDatJahr)) %>% 
-  group_by(StichtagDatJahr, AlterVSort, SexLang) %>% 
-  summarise(AnzBestWir = sum(AnzBestWir)) %>% 
+df <- fread(URL, encoding = "UTF-8") %>%
+  filter(StichtagDatJahr == max(StichtagDatJahr)) %>%
+  group_by(StichtagDatJahr, AlterVSort, SexLang) %>%
+  summarise(AnzBestWir = sum(AnzBestWir)) %>%
   mutate(Anzahl = case_when(SexLang == "weiblich" ~ AnzBestWir*-1,
                             TRUE ~ AnzBestWir))
 
@@ -25,7 +25,7 @@ colors <- get_zuericolors(palette = "qual6", nth = 1:2)
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -56,7 +56,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "pyramid_chart.png"),
+  here("man", "figures", "pyramid_chart.png"),
   p,
   width = 6,
   height = 6

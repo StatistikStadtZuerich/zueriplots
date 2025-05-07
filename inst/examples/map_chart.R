@@ -16,9 +16,9 @@ library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_bevoelkerungsdichten_od5802/download/BEV580OD5802.csv"
-data <- fread(URL, encoding = "UTF-8") %>% 
-  filter(StichtagDatJahr == max(StichtagDatJahr) & RaumKategorie == "Stadtkreis") %>% 
-  select(StichtagDatJahr, RaumSort, RaumLang, DichteT) %>% 
+data <- fread(URL, encoding = "UTF-8") %>%
+  filter(StichtagDatJahr == max(StichtagDatJahr) & RaumKategorie == "Stadtkreis") %>%
+  select(StichtagDatJahr, RaumSort, RaumLang, DichteT) %>%
   rename(Kreisname = RaumLang)
 
 # Shape Files
@@ -29,27 +29,27 @@ URL_geojson_see <- "https://raw.githubusercontent.com/StatistikStadtZuerich/sszv
 see <- st_read(URL_geojson_see)
 
 # Define Quantile Vector
-quantile_vec <- data %>% 
-  pull(DichteT) %>% 
+quantile_vec <- data %>%
+  pull(DichteT) %>%
   quantile(probs = c(0, 0.25, 0.5, 0.75, 1), na.rm = T)
 
 # Make Labels for Plot
 labels <- tibble(
   lab1 = c(quantile_vec[1], quantile_vec[2:5] + 1),
-  lab2 = c(quantile_vec[2:length(quantile_vec)], NA)) %>% 
-  slice(1:n() - 1) %>% 
-  mutate_all(round, digits = 0) %>% 
+  lab2 = c(quantile_vec[2:length(quantile_vec)], NA)) %>%
+  slice(1:n() - 1) %>%
+  mutate_all(round, digits = 0) %>%
   mutate(labels = paste(lab1, lab2, sep = " bis "))
 
 # Join Labels to Data
-data <- data %>% 
+data <- data %>%
   mutate(quantiles = cut(DichteT,
                          breaks = quantile_vec,
                          labels = labels$labels,
                          include.lowest = T))
 
 # Join Data to Shapefile
-df <- quartiere %>% 
+df <- quartiere %>%
   left_join(data, by = "Kreisname")
 
 # Define Colors
@@ -59,7 +59,7 @@ colors_see <- get_zuericolors(palette = "seq6gry", nth = c(1, 2))
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -95,7 +95,7 @@ p <- ggplot() +
 
 # Save Plot
 ggsave(
-  here("plots", "map_chart.png"),
+  here("man", "figures", "map_chart.png"),
   p,
   width = 8,
   height = 6

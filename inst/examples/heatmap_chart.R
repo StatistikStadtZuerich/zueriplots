@@ -23,7 +23,7 @@ colors <- get_zuericolors(palette = "seq9red", nth = c(1, 9))
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -51,7 +51,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "heatmap_chart.png"),
+  here("man", "figures", "heatmap_chart.png"),
   p,
   width = 10,
   height = 9

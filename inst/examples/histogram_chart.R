@@ -12,7 +12,7 @@ library(zueritheme)
 
 # Data
 set.seed(1234)
-df <- as.data.frame(rnorm(2000, 0, 10)) %>% 
+df <- as.data.frame(rnorm(2000, 0, 10)) %>%
   rename(wert = `rnorm(2000, 0, 10)`)
 
 # Define Colors
@@ -21,7 +21,7 @@ color <- get_zuericolors(palette = "qual6", nth = 5)
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -49,7 +49,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "histogram_chart.png"),
+  here("man", "figures", "histogram_chart.png"),
   p,
   width = 10,
   height = 6

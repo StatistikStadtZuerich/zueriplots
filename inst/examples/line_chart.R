@@ -20,7 +20,7 @@ color <- get_zuericolors(palette = "qual6", nth = 1)
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
 
-font_add(family = "Helv", 
+font_add(family = "Helv",
          regular = file.path(path_to_font, "HelveticaNeueLTPro-Roman.ttf"),
          bold = file.path(path_to_font, "HelveticaNeueLTPro-Hv.ttf"))
 
@@ -35,8 +35,8 @@ p <- ggplot(data = df,
   geom_line(stat = "identity",
             color = get_zuericolors(palette = "qual6", nth = 1),
             linewidth = 1) +
-  scale_y_continuous(labels = function(x) format(x, 
-                                                 big.mark = " ", 
+  scale_y_continuous(labels = function(x) format(x,
+                                                 big.mark = " ",
                                                  scientific = FALSE),
                      limits = c(0, 500000),
                      breaks = seq(0, 450000, 50000)) +
@@ -57,7 +57,7 @@ p <- ggplot(data = df,
 
 # Save Plot
 ggsave(
-  here("plots", "line_chart.png"),
+  here("man", "figures", "line_chart.png"),
   p,
   width = 10,
   height = 6
