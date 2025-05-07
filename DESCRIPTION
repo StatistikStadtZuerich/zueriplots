@@ -1,0 +1,19 @@
+Package: zueriplots
+Title: showcase how to create ggplots with styling according to the city of Zurich
+Version: 0.1.0
+Authors@R: 
+    c(
+    person("Alessandro",
+      "Feller",
+      role = c("aut", "cre"),
+      email = "alessandro.feller@zuerich.ch"),
+    person("Statistik Stadt Zürich",
+      email = "statistik@zuerich.ch",
+      role = c("cph", "fnd")
+    ))
+Description: Code for a variety of example plots, based on ggplot, styled according to the guidelines of the city of Zurich. Package does not export anything, exists for documentation purposes.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+URL: https://statistikstadtzuerich.github.io/zueriplots/, https://github.com/StatistikStadtZuerich/zueriplots/

@@ -1,0 +1,11 @@
+^renv$
+^renv\.lock$
+^zueriplots\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^dev$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+.gitlab-ci.yml
