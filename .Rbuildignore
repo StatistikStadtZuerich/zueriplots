@@ -9,3 +9,4 @@
 ^pkgdown$
 ^\.github$
 .gitlab-ci.yml
+^man/figures$
