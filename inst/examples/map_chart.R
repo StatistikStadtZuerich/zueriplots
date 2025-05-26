@@ -85,6 +85,7 @@ p <- ggplot() +
                     name = "Personen pro ha") +
   labs(title = "Bevölkerungsdichte in der Stadt Zürich",
        subtitle = paste0("nach Stadtkreis (mit Bezug Gesamtfläche), ", max(df$StichtagDatJahr))) +
+  coord_sf() +
   ssz_theme_void(base_family = "Helv",
                  base_size = 12) +
   theme(legend.title = element_text(
