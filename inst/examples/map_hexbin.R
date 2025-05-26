@@ -25,8 +25,9 @@ URL_geojson_see <- "https://raw.githubusercontent.com/StatistikStadtZuerich/sszv
 see <- st_read(URL_geojson_see)
 
 # Define Colors
-colors <- get_zuericolors(palette = "seq9blu", nth = c(1, 3, 5, 7, 9))
 colors_see <- get_zuericolors(palette = "seq6gry", nth = c(1, 2))
+# define appropriate color scale (choose any of the zuericolors sequential palettes)
+colors_map <- get_zuericolors(palette = "seq9grn", nth = c(1, 3, 5, 7, 9))
 
 # Import HelveticaNeue LT Pro
 path_to_font <- file.path(user_config_dir(roaming = FALSE, os = "win"), "Microsoft", "Windows", "Fonts")
@@ -40,7 +41,6 @@ showtext_auto()
 showtext_opts(dpi = 300)
 
 # prepare data for plotting: extract coordinates
-
 coords_extracted <- data |>
   st_coordinates() |>
   as.data.frame()
@@ -56,8 +56,6 @@ df_single <- df |>
 
 # Define parameters for graph
 n_bins <- 30
-# define appropriate color scale (choose any of the zuericolors sequential palettes)
-colors_map <- get_zuericolors(palette = "seq9grn", nth = c(1, 3, 5, 7, 9))
 
 # Plot
 p <-   ggplot() +
