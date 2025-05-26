@@ -172,5 +172,13 @@ You can find the R code for this graphic [here](inst/examples/map_chart.R).
 
 <img src='man/figures/map_chart.png' alt="example map" height="400"/>
 
+## Map variant: hexbin
+
+You can find the R code for this graphic [here](inst/examples/map_hexbin.R)
+
+Please note that this is a qualitative approximation to show where individual points are concentrated. The area of each hexagon depends on the `num_bins` parameter. It is important that the data has one row per point, which is why we use `tidyr::uncount()`, even though this isn't necessary with the example data. 
+
+<img src='man/figures/map_hexbin.png' alt="example density map using hexagons" height="400"/>
+
 ## Getting Help
 If you encounter a bug, please contact [statistik@zuerich.ch](mailto:statistik@zuerich.ch).
