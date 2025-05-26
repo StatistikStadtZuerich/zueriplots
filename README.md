@@ -180,5 +180,13 @@ Please note that this is a qualitative approximation to show where individual po
 
 <img src='man/figures/map_hexbin.png' alt="example density map using hexagons" height="400"/>
 
+## Map variant: heatmap
+
+You can find the R code for this graphic [here](inst/examples/map_heatmap.R)
+
+Please note that this is a qualitative approximation to show where individual points are concentrated. The grid over which the density is calculated depends on the parameters `n` and `h`; and the density can only be calculated if the appropriate coordinate system is chosen. It is important that the data has one row per point, which is why we use `tidyr::uncount()`, even though this isn't necessary with the example data. 
+
+<img src='man/figures/map_heatmap.png' alt="example density map using hexagons" height="400"/>
+
 ## Getting Help
 If you encounter a bug, please contact [statistik@zuerich.ch](mailto:statistik@zuerich.ch).
