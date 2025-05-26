@@ -73,7 +73,7 @@ p <-   ggplot() +
   geom_sf(
     data = quartiere,
     fill = "transparent",
-    color = "lightgrey",
+    color = colors_map[3],
     linewidth = 0.25
   ) +
   # Add pattern fill for 'see' areas
