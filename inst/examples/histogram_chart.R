@@ -12,7 +12,7 @@ library(zueritheme)
 
 # Data
 set.seed(1234)
-df <- as.data.frame(rnorm(2000, 0, 10)) %>%
+df <- as.data.frame(rnorm(2000, 0, 10)) |>
   rename(wert = `rnorm(2000, 0, 10)`)
 
 # Define Colors
