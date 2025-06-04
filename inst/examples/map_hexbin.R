@@ -57,11 +57,17 @@ df_single <- df |>
 # Define parameters for graph
 n_bins <- 30
 
+# check if coordinates are within the limits of 'quartiere' (not always necessary!)
+punkte_sf <- st_as_sf(df_single, coords = c("X", "Y"), crs = st_crs(quartiere))
+punkte_in_quartiere <- st_join(punkte_sf, quartiere, join = st_within, left = FALSE)
+punkte_in_quartiere_df <- as.data.frame(punkte_in_quartiere) %>%
+  select(-geometry)
+
 # Plot
 p <-   ggplot() +
   # Plot hexbin for the points in 'ha_single'
   stat_bin_hex(
-    data = df_single,
+    data = punkte_in_quartiere_df,
     aes(x = X, y = Y),
     alpha = 0.8,
     geom = "hex",
@@ -93,7 +99,9 @@ p <-   ggplot() +
                  base_family = "Helv") +
   labs(title = "Baumdichte nach Baumkataster",
        subtitle = "ohne Wald",
-       fill = "")
+       fill = "") +
+  # Adjust legend layout
+  guides(fill = guide_legend(nrow = 5))
 
 # Save Plot
 ggsave(
