@@ -121,7 +121,12 @@ p <- ggplot() +
   theme(legend.position = "none",
         legend.title = element_text(color = "#020304")) +
   labs(title = "Baumdichte in der Stadt Zürich",
-       subtitle = "ohne Wald")
+       subtitle = "basierend auf dem Baumkataster, ohne Wald") +
+  theme(legend.title = element_text(
+    color = "#020304",
+    size = rel(1),
+    face = "bold"
+  ))
 
 # Save Plot
 ggsave(

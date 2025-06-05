@@ -60,11 +60,11 @@ n_bins <- 30
 # check if coordinates are within the limits of 'quartiere' (not always necessary!)
 punkte_sf <- st_as_sf(df_single, coords = c("X", "Y"), crs = st_crs(quartiere))
 punkte_in_quartiere <- st_join(punkte_sf, quartiere, join = st_within, left = FALSE)
-punkte_in_quartiere_df <- as.data.frame(punkte_in_quartiere) %>%
+punkte_in_quartiere_df <- as.data.frame(punkte_in_quartiere) |>
   select(-geometry)
 
 # Plot
-p <-   ggplot() +
+p <- ggplot() +
   # Plot hexbin for the points in 'ha_single'
   stat_bin_hex(
     data = punkte_in_quartiere_df,
@@ -97,11 +97,16 @@ p <-   ggplot() +
   # Apply custom theme
   ssz_theme_void(base_size = 12,
                  base_family = "Helv") +
-  labs(title = "Baumdichte nach Baumkataster",
-       subtitle = "ohne Wald",
+  labs(title = "Baumdichte in der Stadt Zürich",
+       subtitle = "basierend auf dem Baumkataster, ohne Wald",
        fill = "") +
-  # Adjust legend layout
-  guides(fill = guide_legend(nrow = 5))
+  # Adjust legend layout so it appears categorical
+  guides(fill = guide_legend(nrow = 5)) +
+  theme(legend.title = element_text(
+    color = "#020304",
+    size = rel(1),
+    face = "bold"
+  ))
 
 # Save Plot
 ggsave(
