@@ -4,8 +4,10 @@
 library(data.table)
 library(dplyr)
 library(here)
+library(geosphere)
 library(ggpattern)
 library(ggplot2)
+library(glue)
 library(rappdirs)
 library(sf)
 library(showtext)
@@ -94,6 +96,22 @@ dens <- df |>
   mutate(anzahl = 1) |>
   get_density("anzahl")
 
+# approximate the pixel size
+# grid of 500x500 points on the extent of the data
+# use haversine distance from geospatial package; needs lon/lat
+coords_data <- st_read(URL) |>
+  st_coordinates() |>
+  as.data.frame()
+min_x <- min(coords_data$X)
+max_x <- max(coords_data$X)
+min_y <- min(coords_data$Y)
+max_y <- max(coords_data$Y)
+distances <- distHaversine(cbind(
+  x = c(min_x, min_x, max_x),
+  y = c(max_y, min_y, min_y)
+))
+approx_pixel <- round(distances / 500, digits = 1)
+
 # plot
 p <- ggplot() +
   geom_sf(
@@ -121,7 +139,8 @@ p <- ggplot() +
   theme(legend.position = "none",
         legend.title = element_text(color = "#020304")) +
   labs(title = "Baumdichte in der Stadt Zürich",
-       subtitle = "basierend auf dem Baumkataster, ohne Wald") +
+       subtitle = "basierend auf dem Baumkataster, ohne Wald",
+       caption = glue("1 Pixel ist ca. {approx_pixel[[1]]} x {approx_pixel[[2]]} m gross.")) +
   theme(legend.title = element_text(
     color = "#020304",
     size = rel(1),
