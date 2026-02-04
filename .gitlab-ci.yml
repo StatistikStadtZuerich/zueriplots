@@ -1,5 +1,5 @@
 include:
-  # use template for all stages 
+  # use template for all stages
   - project: "OE-7035/ssz-da/templates/pipeline-templates"
     ref: v1.1.0
     file: "stages.yml"
@@ -12,9 +12,16 @@ include:
     ref: v1.1.0
     file: "r-check-and-build-packages.yml"
 
-r-pkgdown-build-no-commit:
-  extends: ".r-pkgdown-build-no-commit"
+# run check
+r-devtools-check:
+  extends:
+    - .r-devtools-check
 
+r-pkgdown-build-no-commit:
+  extends:
+    - .r-pkgdown-build-no-commit
+
+# push main branch to github
 publish-main-to-github:
   extends:
     - .publish-main-to-github

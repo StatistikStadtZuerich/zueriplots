@@ -16,8 +16,8 @@ library(zueritheme)
 
 # Data
 URL <- "https://data.stadt-zuerich.ch/dataset/ugz_meteodaten_tagesmittelwerte/download/ugz_ogd_meteo_d1_2021.csv"
-df <- fread(URL, encoding = "UTF-8") %>%
-  filter(Standort == "Zch_Stampfenbachstrasse" & Parameter == "T") %>%
+df <- fread(URL, encoding = "UTF-8") |>
+  filter(Standort == "Zch_Stampfenbachstrasse" & Parameter == "T") |>
   mutate(date = as.Date(Datum),
          month = fct_rev(lubridate::month(date, label = TRUE)))
 
