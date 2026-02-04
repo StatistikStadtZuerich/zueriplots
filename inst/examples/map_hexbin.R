@@ -6,6 +6,7 @@ library(dplyr)
 library(here)
 library(ggpattern)
 library(ggplot2)
+library(glue)
 library(hexbin)
 library(rappdirs)
 library(sf)
@@ -56,6 +57,9 @@ df_single <- df |>
 
 # Define parameters for graph
 n_bins <- 30
+# if there are 30 bins and the data span the whole city, then the size of one
+# bin is approximately 12 ha
+hex_area <- "12 ha"
 
 # check if coordinates are within the limits of 'quartiere' (not always necessary!)
 punkte_sf <- st_as_sf(df_single, coords = c("X", "Y"), crs = st_crs(quartiere))
@@ -99,7 +103,8 @@ p <- ggplot() +
                  base_family = "Helv") +
   labs(title = "Baumdichte in der Stadt Zürich",
        subtitle = "basierend auf dem Baumkataster, ohne Wald",
-       fill = "") +
+       fill = "",
+       caption = glue("1 hexagon covers approximately {hex_area}")) +
   # Adjust legend layout so it appears categorical
   guides(fill = guide_legend(nrow = 5)) +
   theme(legend.title = element_text(
