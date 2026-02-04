@@ -1,23 +1,27 @@
-# use template for gitlab pipeline to push main to github
 include:
+  # use template for all stages
   - project: "OE-7035/ssz-da/templates/pipeline-templates"
-    ref: "main"
+    ref: v1.1.0
+    file: "stages.yml"
+  # use template for gitlab pipeline to push main to github
+  - project: "OE-7035/ssz-da/templates/pipeline-templates"
+    ref: v1.1.0
     file: "publish-to-github.yml"
-    # use template for gitlab pipeline to check and build
+  # use template for gitlab pipeline to check and build
   - project: "OE-7035/ssz-da/templates/pipeline-templates"
-    ref: "main"
+    ref: v1.1.0
     file: "r-check-and-build-packages.yml"
 
-stages:
-  - test
-  - build
-  - deploy-prod
+# run check
+r-devtools-check:
+  extends:
+    - .r-devtools-check
 
 r-pkgdown-build-no-commit:
-  extends: ".r-pkgdown-build-no-commit"
-  before_script:
-    - Rscript -e "renv::restore(packages = 'pkgdown')"
+  extends:
+    - .r-pkgdown-build-no-commit
 
+# push main branch to github
 publish-main-to-github:
   extends:
     - .publish-main-to-github

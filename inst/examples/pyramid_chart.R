@@ -14,8 +14,8 @@ library(zueritheme)
 URL <- "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903/download/BEV390OD3903.csv"
 df <- fread(URL, encoding = "UTF-8") |>
   filter(StichtagDatJahr == max(StichtagDatJahr)) |>
-  group_by(StichtagDatJahr, AlterVSort, SexLang) |>
-  summarise(AnzBestWir = sum(AnzBestWir)) |>
+  summarise(.by = c(StichtagDatJahr, AlterVSort, SexLang),
+            AnzBestWir = sum(AnzBestWir)) |>
   mutate(Anzahl = case_when(SexLang == "weiblich" ~ AnzBestWir*-1,
                             TRUE ~ AnzBestWir))
 
