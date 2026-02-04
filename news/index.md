@@ -1,5 +1,9 @@
 # Changelog
 
+## zueriplots 0.2.0
+
+- Add map variants: hexbin and heatmap.
+
 ## zueriplots 0.1.0
 
 - Initial version as dummy package for documentation purposes.

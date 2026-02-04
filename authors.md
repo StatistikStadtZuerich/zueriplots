@@ -11,14 +11,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/StatistikStadtZuerich/zueriplots/blob/main/DESCRIPTION)
 
-Feller A (2025). *zueriplots: showcase how to create ggplots with
-styling according to the city of Zurich*. R package version 0.1.0,
+Feller A (2026). *zueriplots: showcase how to create ggplots with
+styling according to the city of Zurich*. R package version 0.2.0,
 <https://statistikstadtzuerich.github.io/zueriplots/>.
 
     @Manual{,
       title = {zueriplots: showcase how to create ggplots with styling according to the city of Zurich},
       author = {Alessandro Feller},
-      year = {2025},
-      note = {R package version 0.1.0},
+      year = {2026},
+      note = {R package version 0.2.0},
       url = {https://statistikstadtzuerich.github.io/zueriplots/},
     }

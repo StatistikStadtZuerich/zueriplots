@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">zueriplots</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -222,6 +222,20 @@
 </h2>
 <p>You can find the R code for this graphic <a href="inst/examples/map_chart.R">here</a>.</p>
 <p><img src="reference/figures/map_chart.png" alt="example map" height="400"></p>
+</div>
+<div class="section level2">
+<h2 id="map-variant-hexbin">Map variant: hexbin<a class="anchor" aria-label="anchor" href="#map-variant-hexbin"></a>
+</h2>
+<p>You can find the R code for this graphic <a href="inst/examples/map_hexbin.R">here</a></p>
+<p>Please note that this is a qualitative approximation to show where individual points are concentrated. The area of each hexagon depends on the <code>bins</code> parameter. It is important that the data has one row per point, which is why we use <code>tidyr::uncount()</code>, even though this isn’t necessary with the example data. As a very (!) approximate area reference, with <code>bins = 30</code> as in the example, one hexagon covers approximately 12ha.</p>
+<p><img src="reference/figures/map_hexbin.png" alt="example density map using hexagons" height="400"></p>
+</div>
+<div class="section level2">
+<h2 id="map-variant-heatmap">Map variant: heatmap<a class="anchor" aria-label="anchor" href="#map-variant-heatmap"></a>
+</h2>
+<p>You can find the R code for this graphic <a href="inst/examples/map_heatmap.R">here</a></p>
+<p>Please note that this is a qualitative approximation to show where individual points are concentrated. The grid over which the density is calculated depends on the parameters <code>n</code> and <code>h</code>; and the density can only be calculated if the appropriate coordinate system is chosen. The example also covers how to calculate the pixel size in the heatmap, though this is approximate, a heatmap is never exact. It is important that the data has one row per point, which is why we use <code>tidyr::uncount()</code>, even though this isn’t necessary with the example data.</p>
+<p><img src="reference/figures/map_heatmap.png" alt="example density map using hexagons" height="400"></p>
 </div>
 <div class="section level2">
 <h2 id="getting-help">Getting Help<a class="anchor" aria-label="anchor" href="#getting-help"></a>

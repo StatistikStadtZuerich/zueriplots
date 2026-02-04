@@ -250,6 +250,38 @@ You can find the R code for this graphic
 
 ![example map](reference/figures/map_chart.png)
 
+## Map variant: hexbin
+
+You can find the R code for this graphic
+[here](https://statistikstadtzuerich.github.io/zueriplots/inst/examples/map_hexbin.R)
+
+Please note that this is a qualitative approximation to show where
+individual points are concentrated. The area of each hexagon depends on
+the `bins` parameter. It is important that the data has one row per
+point, which is why we use `tidyr::uncount()`, even though this isn’t
+necessary with the example data. As a very (!) approximate area
+reference, with `bins = 30` as in the example, one hexagon covers
+approximately 12ha.
+
+![example density map using hexagons](reference/figures/map_hexbin.png)
+
+## Map variant: heatmap
+
+You can find the R code for this graphic
+[here](https://statistikstadtzuerich.github.io/zueriplots/inst/examples/map_heatmap.R)
+
+Please note that this is a qualitative approximation to show where
+individual points are concentrated. The grid over which the density is
+calculated depends on the parameters `n` and `h`; and the density can
+only be calculated if the appropriate coordinate system is chosen. The
+example also covers how to calculate the pixel size in the heatmap,
+though this is approximate, a heatmap is never exact. It is important
+that the data has one row per point, which is why we use
+`tidyr::uncount()`, even though this isn’t necessary with the example
+data.
+
+![example density map using hexagons](reference/figures/map_heatmap.png)
+
 ## Getting Help
 
 If you encounter a bug, please contact <statistik@zuerich.ch>.
