@@ -188,5 +188,14 @@ Please note that this is a qualitative approximation to show where individual po
 
 <img src='man/figures/map_heatmap.png' alt="example density map using hexagons" height="400"/>
 
+## Map variant: interactive map with leaflet
+
+Using the leaflet package, we can create an interactive map for use in html documents or shiny applications based on the city's raster map.
+
+You can find the R code for this graphic [here](inst/examples/map_interactive_leaflet.R)
+
+<img src='man/figures/leaflet_map.png' alt="example density map using hexagons" height="400"/>
+
+
 ## Getting Help
 If you encounter a bug, please contact [statistik@zuerich.ch](mailto:statistik@zuerich.ch).
