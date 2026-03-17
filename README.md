@@ -18,7 +18,7 @@ The `ssz_theme(...)` function from the `zueritheme` package provides most of the
 
 Before you can start, you have to install `zueritheme` and `zuericolors` as well as Zurich's official font `HelveticaNeueLTPro` (only available for city employees).
 
-Further below you can find code examples of the most commonly used graph types.
+Further below you can find code examples of the most commonly used graph types; please note that the links to the files currently do not work on the website for the documentation, only in the readme e.g. on [GitHub](https://github.com/StatistikStadtZuerich/zueriplots).
 
 ## Installing the required packages from the zueriverse
 
