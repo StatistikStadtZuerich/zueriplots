@@ -190,11 +190,21 @@ Please note that this is a qualitative approximation to show where individual po
 
 ## Map variant: interactive map with leaflet
 
-Using the leaflet package, we can create an interactive map for use in html documents or shiny applications based on the city's raster map.
+Using the leaflet package, we can create an interactive map for use in html documents or shiny applications based on the city's raster map (both grey and colour tiles are possible).
 
 You can find the R code for this graphic [here](inst/examples/map_interactive_leaflet.R)
 
 <img src='man/figures/leaflet_map.png' alt="example density map using hexagons" height="400"/>
+
+## Map variant: interactive map with mapgl
+
+Using the mapgl package, we can also create an interactive map for use in html documents or shiny applications based on the city's raster map (both grey and colour tiles are possible).
+We recommend this over leaflet, as more modifications can be made with parameters to R functions rather than resorting to JS. 
+
+You can find the R code for this graphic [here](inst/examples/map_interactive_mapgl.R)
+
+<img src='man/figures/map_leaflet.png' alt="example density map using hexagons" height="400"/>
+
 
 
 ## Getting Help
