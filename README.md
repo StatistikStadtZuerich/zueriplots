@@ -18,7 +18,7 @@ The `ssz_theme(...)` function from the `zueritheme` package provides most of the
 
 Before you can start, you have to install `zueritheme` and `zuericolors` as well as Zurich's official font `HelveticaNeueLTPro` (only available for city employees).
 
-Further below you can find code examples of the most commonly used graph types.
+Further below you can find code examples of the most commonly used graph types; please note that the links to the files currently do not work on the website for the documentation, only in the readme e.g. on [GitHub](https://github.com/StatistikStadtZuerich/zueriplots).
 
 ## Installing the required packages from the zueriverse
 
@@ -187,6 +187,25 @@ You can find the R code for this graphic [here](inst/examples/map_heatmap.R)
 Please note that this is a qualitative approximation to show where individual points are concentrated. The grid over which the density is calculated depends on the parameters `n` and `h`; and the density can only be calculated if the appropriate coordinate system is chosen. The example also covers how to calculate the pixel size in the heatmap, though this is approximate, a heatmap is never exact. It is important that the data has one row per point, which is why we use `tidyr::uncount()`, even though this isn't necessary with the example data. 
 
 <img src='man/figures/map_heatmap.png' alt="example density map using hexagons" height="400"/>
+
+## Map variant: interactive map with leaflet
+
+Using the leaflet package, we can create an interactive map for use in html documents or shiny applications based on the city's raster map (both grey and colour tiles are possible).
+
+You can find the R code for this graphic [here](inst/examples/map_interactive_leaflet.R)
+
+<img src='man/figures/leaflet_map.png' alt="example density map using hexagons" height="400"/>
+
+## Map variant: interactive map with mapgl
+
+Using the mapgl package, we can also create an interactive map for use in html documents or shiny applications based on the city's raster map (both grey and colour tiles are possible).
+We recommend this over leaflet, as more modifications can be made with parameters to R functions rather than resorting to JS. 
+
+You can find the R code for this graphic [here](inst/examples/map_interactive_mapgl.R)
+
+<img src='man/figures/map_leaflet.png' alt="example density map using hexagons" height="400"/>
+
+
 
 ## Getting Help
 If you encounter a bug, please contact [statistik@zuerich.ch](mailto:statistik@zuerich.ch).
