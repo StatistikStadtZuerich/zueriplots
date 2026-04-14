@@ -27,7 +27,9 @@ as well as Zurich’s official font `HelveticaNeueLTPro` (only available
 for city employees).
 
 Further below you can find code examples of the most commonly used graph
-types.
+types; please note that the links to the files currently do not work on
+the website for the documentation, only in the readme e.g. on
+[GitHub](https://github.com/StatistikStadtZuerich/zueriplots).
 
 ## Installing the required packages from the zueriverse
 
@@ -281,6 +283,30 @@ that the data has one row per point, which is why we use
 data.
 
 ![example density map using hexagons](reference/figures/map_heatmap.png)
+
+## Map variant: interactive map with leaflet
+
+Using the leaflet package, we can create an interactive map for use in
+html documents or shiny applications based on the city’s raster map
+(both grey and colour tiles are possible).
+
+You can find the R code for this graphic
+[here](https://statistikstadtzuerich.github.io/zueriplots/inst/examples/map_interactive_leaflet.R)
+
+![example density map using hexagons](reference/figures/leaflet_map.png)
+
+## Map variant: interactive map with mapgl
+
+Using the mapgl package, we can also create an interactive map for use
+in html documents or shiny applications based on the city’s raster map
+(both grey and colour tiles are possible). We recommend this over
+leaflet, as more modifications can be made with parameters to R
+functions rather than resorting to JS.
+
+You can find the R code for this graphic
+[here](https://statistikstadtzuerich.github.io/zueriplots/inst/examples/map_interactive_mapgl.R)
+
+![example density map using hexagons](reference/figures/map_leaflet.png)
 
 ## Getting Help
 

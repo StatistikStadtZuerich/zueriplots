@@ -1,5 +1,9 @@
 # Changelog
 
+## zueriplots 0.2.1
+
+- Add interactive map variants with leaflet and mapgl.
+
 ## zueriplots 0.2.0
 
 - Add map variants: hexbin and heatmap.

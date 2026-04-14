@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">zueriplots</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
 </h2>
 <p>The <code>ssz_theme(...)</code> function from the <code>zueritheme</code> package provides most of the styling. However, in order for <code>ggplot2</code> graphics to conform to the corporate design, a few manual steps are still necessary. These steps will be explained below.</p>
 <p>Before you can start, you have to install <code>zueritheme</code> and <code>zuericolors</code> as well as Zurich’s official font <code>HelveticaNeueLTPro</code> (only available for city employees).</p>
-<p>Further below you can find code examples of the most commonly used graph types.</p>
+<p>Further below you can find code examples of the most commonly used graph types; please note that the links to the files currently do not work on the website for the documentation, only in the readme e.g. on <a href="https://github.com/StatistikStadtZuerich/zueriplots" class="external-link">GitHub</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="installing-the-required-packages-from-the-zueriverse">Installing the required packages from the zueriverse<a class="anchor" aria-label="anchor" href="#installing-the-required-packages-from-the-zueriverse"></a>
@@ -236,6 +236,20 @@
 <p>You can find the R code for this graphic <a href="inst/examples/map_heatmap.R">here</a></p>
 <p>Please note that this is a qualitative approximation to show where individual points are concentrated. The grid over which the density is calculated depends on the parameters <code>n</code> and <code>h</code>; and the density can only be calculated if the appropriate coordinate system is chosen. The example also covers how to calculate the pixel size in the heatmap, though this is approximate, a heatmap is never exact. It is important that the data has one row per point, which is why we use <code>tidyr::uncount()</code>, even though this isn’t necessary with the example data.</p>
 <p><img src="reference/figures/map_heatmap.png" alt="example density map using hexagons" height="400"></p>
+</div>
+<div class="section level2">
+<h2 id="map-variant-interactive-map-with-leaflet">Map variant: interactive map with leaflet<a class="anchor" aria-label="anchor" href="#map-variant-interactive-map-with-leaflet"></a>
+</h2>
+<p>Using the leaflet package, we can create an interactive map for use in html documents or shiny applications based on the city’s raster map (both grey and colour tiles are possible).</p>
+<p>You can find the R code for this graphic <a href="inst/examples/map_interactive_leaflet.R">here</a></p>
+<p><img src="reference/figures/leaflet_map.png" alt="example density map using hexagons" height="400"></p>
+</div>
+<div class="section level2">
+<h2 id="map-variant-interactive-map-with-mapgl">Map variant: interactive map with mapgl<a class="anchor" aria-label="anchor" href="#map-variant-interactive-map-with-mapgl"></a>
+</h2>
+<p>Using the mapgl package, we can also create an interactive map for use in html documents or shiny applications based on the city’s raster map (both grey and colour tiles are possible). We recommend this over leaflet, as more modifications can be made with parameters to R functions rather than resorting to JS.</p>
+<p>You can find the R code for this graphic <a href="inst/examples/map_interactive_mapgl.R">here</a></p>
+<p><img src="reference/figures/map_leaflet.png" alt="example density map using hexagons" height="400"></p>
 </div>
 <div class="section level2">
 <h2 id="getting-help">Getting Help<a class="anchor" aria-label="anchor" href="#getting-help"></a>
