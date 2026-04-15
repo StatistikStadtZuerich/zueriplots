@@ -95,7 +95,7 @@ ggplot(...) +
 
 # Different plot types
 
-Example code for the most commonly used graphic types at [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) is provided below, please note that the links to the files currently do not work on the website for the documentation, only in the readme e.g. on [GitHub](https://github.com/StatistikStadtZuerich/zueriplots).
+Example code for the most commonly used graphic types at [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html) is provided below, please note that the links to the files currently do not work on the website for the documentation, only in the readme e.g. on [GitHub](https://github.com/StatistikStadtZuerich/zueriplots).
 
 ## Bar Chart
 ### Simple Bar Chart
