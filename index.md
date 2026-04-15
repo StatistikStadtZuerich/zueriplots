@@ -139,8 +139,11 @@ ggplot(...) +
 # Different plot types
 
 Example code for the most commonly used graphic types at [Statistik
-Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html)
-is provided below.
+Stadt
+Zürich](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)
+is provided below, please note that the links to the files currently do
+not work on the website for the documentation, only in the readme
+e.g. on [GitHub](https://github.com/StatistikStadtZuerich/zueriplots).
 
 ## Bar Chart
 
@@ -293,7 +296,8 @@ html documents or shiny applications based on the city’s raster map
 You can find the R code for this graphic
 [here](https://statistikstadtzuerich.github.io/zueriplots/inst/examples/map_interactive_leaflet.R)
 
-![example density map using hexagons](reference/figures/leaflet_map.png)
+![example interactive map using leaflet
+package](reference/figures/map_leaflet.png)
 
 ## Map variant: interactive map with mapgl
 
@@ -306,7 +310,8 @@ functions rather than resorting to JS.
 You can find the R code for this graphic
 [here](https://statistikstadtzuerich.github.io/zueriplots/inst/examples/map_interactive_mapgl.R)
 
-![example density map using hexagons](reference/figures/map_leaflet.png)
+![example interactive map using mapgl
+package](reference/figures/map_mapgl.png)
 
 ## Getting Help
 
