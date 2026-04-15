@@ -194,7 +194,7 @@ Using the leaflet package, we can create an interactive map for use in html docu
 
 You can find the R code for this graphic [here](inst/examples/map_interactive_leaflet.R)
 
-<img src='man/figures/leaflet_map.png' alt="example density map using hexagons" height="400"/>
+<img src='man/figures/map_leaflet.png' alt="example interactive map using leaflet package" height="400"/>
 
 ## Map variant: interactive map with mapgl
 
@@ -203,7 +203,7 @@ We recommend this over leaflet, as more modifications can be made with parameter
 
 You can find the R code for this graphic [here](inst/examples/map_interactive_mapgl.R)
 
-<img src='man/figures/map_leaflet.png' alt="example density map using hexagons" height="400"/>
+<img src='man/figures/map_mapgl.png' alt="example interactive map using mapgl package" height="400"/>
 
 
 
